@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { auth, provider } from "../../firebase-config.js";
 import {
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
 } from "firebase/auth";
@@ -11,30 +12,27 @@ import "./Auth.scss";
 function Auth() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //   const signIn = async () => {
-  //     try {
-  //       await createUserWithEmailAndPassword(auth, email, password);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
+
   const signIn = () => {
-    createUserWithEmailAndPassword(auth, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        console.log("User created successfully");
+        console.log("Sign in successfully");
       })
       .catch((error) => {
         console.error(error);
       });
   };
 
-  //   const signInWithGoogle = async () => {
-  //     try {
-  //       await signInWithPopup(auth, provider);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+  // const signIn = () => {
+  //   createUserWithEmailAndPassword(auth, email, password)
+  //     .then(() => {
+  //       console.log("User created successfully");
+  //     })
+  //     .catch((error) => {
+  //       console.error(error);
+  //     });
+  // };
+
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then(() => {
