@@ -23,16 +23,6 @@ function Auth() {
       });
   };
 
-  // const signIn = () => {
-  //   createUserWithEmailAndPassword(auth, email, password)
-  //     .then(() => {
-  //       console.log("User created successfully");
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // };
-
   const signInWithGoogle = () => {
     signInWithPopup(auth, provider)
       .then(() => {

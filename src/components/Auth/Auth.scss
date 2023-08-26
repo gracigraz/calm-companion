@@ -2,14 +2,6 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-// html,
-// body {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   background-color: $background-light-grey;
-// }
-
 .authentication {
   &__google {
     transition: background-color 0.3s, box-shadow 0.3s;
