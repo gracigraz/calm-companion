@@ -3,4 +3,35 @@
 @use "../../styles/partials/mixins" as *;
 
 .hacks {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__back {
+    background-image: url("../../assets/icons/back.png");
+    background-size: 8%;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: center;
+    padding: 0.75rem 1rem;
+  }
+  &__title {
+    font-family: "Quicksand", sans-serif;
+    margin-bottom: 1rem;
+  }
+  &button {
+    border-radius: 20px;
+    border: 0.0625rem solid lightcoral;
+    background-color: gray;
+    &:hover {
+      background-color: yellow;
+    }
+  }
+  &__save {
+    border-radius: 20px;
+    border: 0.0625rem solid lightcoral;
+    background-color: gray;
+  }
 }

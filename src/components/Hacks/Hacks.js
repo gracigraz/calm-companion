@@ -4,13 +4,15 @@ function Hacks() {
   return (
     <>
       <div className="hacks">
-        <div className="not-found__round-container">
-          <h1 className="not-found__error">404</h1>
+        <div className="hacks__back"></div>
+        <h4 className="hacks__title">
+          What are some relaxing spots to hang out that can help shift your
+          focus from your worries?
+        </h4>
+        <div className="hacks__container">
+          <button className="hacks-button"></button>
         </div>
-        <p className="not-found__message">
-          Can't find what you're looking for, sorry! Don't worry thought,
-          everything is STILL AWESOME
-        </p>
+        <button className="hacks__save">Save</button>
       </div>
     </>
   );

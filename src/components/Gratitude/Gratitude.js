@@ -3,8 +3,8 @@ import { db } from "../../firebase-config.js"; // Import both auth and firestore
 import { collection, addDoc } from "firebase/firestore";
 
 function Gratitude() {
-  const [registerReason, setRegisterReason] = useState("");
-  const usersCollectionRef = collection(db, "users"); //grabbing the users collection form the db and asigning it to usersCollectionRef, collection function we need to import from the firestore, now we can make queries to the users collection
+  // const [registerReason, setRegisterReason] = useState("");
+  // const usersCollectionRef = collection(db, "users"); //grabbing the users collection form the db and asigning it to usersCollectionRef, collection function we need to import from the firestore, now we can make queries to the users collection
 
   //   const register = () => {
 
@@ -29,7 +29,7 @@ function Gratitude() {
             "Hey, what are some things that are absolutely worth living for?
             What lights up your world?"
           </label>
-          <input
+          {/* <input
             className="gratitude__input"
             type="text"
             id="gratitude__label"
@@ -41,7 +41,7 @@ function Gratitude() {
           />
           <button className="gratitude__button" onClick={register}>
             + Add
-          </button>
+          </button> */}
         </form>
         <div className="gratitude__thoughts">
           <div className="gratitude__thought">
