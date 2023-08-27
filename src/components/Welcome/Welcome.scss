@@ -10,24 +10,26 @@ $color-yellow: #f9cdad;
 $color-pink: #fe4365;
 
 .welcome {
-  padding: 64px 36px;
+  padding: 64px 36px 36px 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
-  font: 2vw system-ui;
+  font: 2vw "Quicksand";
   background-color: $color-yellow;
+  font-family: "Quicksand", sans-serif;
+  // system-ui
 
   &__container {
     transform: translatey(0px);
     animation: float 5s ease-in-out infinite;
     text-align: center;
     font-weight: bold;
-    letter-spacing: 3px;
-    font-size: 15px;
+    letter-spacing: 2.5px;
+    font-size: 14px;
     color: $color-brown;
     background-color: $color-beige;
-    padding: 24px;
+    padding: 20px;
     border-radius: 11px;
     position: relative;
     box-shadow: 20px 20px $color-blue;

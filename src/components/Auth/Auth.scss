@@ -3,6 +3,13 @@
 @use "../../styles/partials/mixins" as *;
 
 .authentication {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1rem;
+
   &__google {
     transition: background-color 0.3s, box-shadow 0.3s;
     padding: 12px 16px 12px 42px;
@@ -29,5 +36,45 @@
       box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
         0 0 0 3px #c8dafc;
     }
+  }
+  &__alt {
+    // border-top: solid 0.0625rem lightgray;
+    // margin: 0 4rem;
+    text-align: center;
+    font-size: small;
+    color: gray;
+    font-family: "Quicksand", sans-serif;
+  }
+  &__email {
+    border-radius: 4px;
+    border: solid lightgrey 1px;
+    padding: 0.5rem 1rem;
+    font-family: "Quicksand", sans-serif;
+  }
+  &__password {
+    border-radius: 4px;
+    border: solid lightgrey 1px;
+    padding: 0.5rem 1rem;
+    font-family: "Quicksand", sans-serif;
+  }
+
+  &__forgot {
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: gray;
+    font-size: small;
+    font-family: "Quicksand", sans-serif;
+  }
+  &__signin {
+    border-radius: 4px;
+    border: solid lightgrey 1px;
+    padding: 0.5rem 1rem;
+    font-family: "Quicksand", sans-serif;
+    color: gray;
+  }
+  &__logout {
+    display: none;
+    font-family: "Quicksand", sans-serif;
   }
 }

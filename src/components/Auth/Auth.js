@@ -46,6 +46,7 @@ function Auth() {
       <button className="authentication__google" onClick={signInWithGoogle}>
         Sign In With Google
       </button>
+      <span className="authentication__alt">or</span>
       <input
         className="authentication__email"
         placeholder="Email"
@@ -58,10 +59,11 @@ function Auth() {
         type="password"
         onChange={(event) => setPassword(event.target.value)}
       />
-      <button className="authentication__forgot">Forgot Password</button>
+
       <button className="authentication__signin" onClick={signIn}>
         Sign In
       </button>
+      <button className="authentication__forgot">Forgot Password</button>
       <Link to="/">
         <button className="authentication__logout" onClick={logOut}>
           Logout
