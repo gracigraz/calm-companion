@@ -39,9 +39,10 @@ function MapUrgentCare() {
   }, []);
 
   return (
-    <div>
-      We got you - search for urgent care NOW!
+    <div className="map">
+      <h4 className="map__title">We got you - search for urgent care NOW!</h4>
       <div
+        className="map__map-container"
         id="map"
         style={{ position: "absolute", width: "100%", height: "100%" }}
       />
