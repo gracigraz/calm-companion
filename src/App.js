@@ -9,6 +9,7 @@ import Crisis from "./components/Crisis/Crisis";
 import MapER from "./components/MapER/MapER";
 import MapUrgentCare from "./components/MapUrgentCare/MapUrgentCare";
 import Cookies from "universal-cookie";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 const cookies = new Cookies();
 
 function App() {
@@ -19,9 +20,10 @@ function App() {
         <Route path="/login" element={<Auth />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/crisis" element={<Crisis />} />
-        <Route path="/:id" />
+        {/* <Route path="/:id" /> */}
         <Route path="/urgent-care" element={<MapUrgentCare />} />
         <Route path="/emergency-room" element={<MapER />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   );

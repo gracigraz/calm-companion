@@ -17,12 +17,15 @@ function MapUrgentCare() {
 
     const searchJS = document.createElement("script");
     searchJS.src = "https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js";
+
     searchJS.onload = function () {
       const searchBox = new window.MapboxSearchBox();
       searchBox.accessToken = ACCESS_TOKEN;
       searchBox.options = {
         types: "address, poi, category, postcode",
-        // poi_category: "emergency_room",
+        // poi_category:
+        //   "doctor's office, health services, services,medical clinic,emergency room, hospital",
+        poi_category: "emergency_room",
         proximity: [25.793449, -80.139198],
       };
       searchBox.marker = true;
