@@ -1,62 +1,46 @@
-// import React from "react";
-// import { Loader } from "@googlemaps/js-api-loader";
-// import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import React from "react";
+import "./Crisis.scss";
 
-// const CallEmergency = () => {
-//   const handleCallEmergency = () => {
-//     window.location.href = "tel:911";
-//   };
-//   const CallHelpLine = () => {
-//     const handleCallHelpLine = () => {
-//       window.location.href = "tel:988";
-//     };
+function Crisis() {
+  const handleCallEmergency = () => {
+    window.location.href = "tel:911";
+  };
 
-//   function initMap() {
-//     // Initialize map
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//       center: { lat: YOUR_LATITUDE, lng: YOUR_LONGITUDE },
-//       zoom: 14,
-//     });
+  const handleCallHelpLine = () => {
+    window.location.href = "tel:988";
+  };
+  const handleFindUrgentCare = () => {
+    window.location.href = "/urgent-care";
+  };
+  const handleFindER = () => {
+    window.location.href = "/emergency-room";
+  };
+  return (
+    <>
+      <div className="crisis">
+        <h2 className="crisis__title">Help is available!</h2>
+        <div className="crisis__buttons">
+          <button className="crisis__911" onClick={handleCallEmergency}>
+            Call 911
+          </button>
+          <button className="crisis__988" onClick={handleCallHelpLine}>
+            Call 988
+          </button>
+        </div>
+        <div className="crisis__buttons">
+          <button
+            className="crisis__urgent-care"
+            onClick={handleFindUrgentCare}
+          >
+            Find Urgent Care Near You
+          </button>
+          <button className="crisis__ER" onClick={handleFindER}>
+            Find Emergency Room Near You
+          </button>
+        </div>
+      </div>
+    </>
+  );
+}
 
-//     // Create a PlacesService object to interact with Places API
-//     const placesService = new google.maps.places.PlacesService(map);
-
-//     // Define a request to search for coffee shops nearby
-//     const request = {
-//       location: new google.maps.LatLng(YOUR_LATITUDE, YOUR_LONGITUDE),
-//       radius: 1000, // Search radius in meters
-//       types: ["cafe"], // Filter results to cafes
-//     };
-
-//     // Perform the nearby search
-//     placesService.nearbySearch(request, (results, status) => {
-//       if (status === google.maps.places.PlacesServiceStatus.OK) {
-//         for (let i = 0; i < results.length; i++) {
-//           createMarker(results[i]);
-//         }
-//       }
-//     });
-//   }
-
-//   function createMarker(place) {
-//     const marker = new google.maps.Marker({
-//       position: place.geometry.location,
-//       map: map,
-//     });
-//   }
-
-//   return (
-//     <>
-//       <button onClick={handleCallEmergency}>
-//         Call 911 in Case of Emergency
-//       </button>
-//       <button onClick={handleCallEmergency}>
-//         Call 988 Help is Available
-//       </button>
-//       <h2>Connect with people you trust</h2>
-//       <div id="map"></div>;
-//     </>
-//   );
-// };
-
-// export default Call911Emergency;
+export default Crisis;

@@ -1,0 +1,22 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+// #map {
+//   width: 10%;
+//   height: 50vh;
+//   //   scr: https://maps.googleapis.com/maps/api/js?key=AIzaSyCBpmhVibDjJQ4i9Xf9rf8l1wyEELZb49k&callbacl=initMap"
+// }
+
+.crisis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+}
