@@ -26,17 +26,32 @@
     flex-direction: row;
     flex-wrap: wrap;
   }
+
   &__button {
     color: black;
     font-size: 10px;
     border-radius: 20px;
-    border: 0.0625rem solid lightcoral;
-    background-color: gray;
+    border: 0.0625rem solid #c8c8a9;
+    background-color: #c8c8a9;
+    padding: 8px 16px;
+    margin: 6px;
   }
 
-  &__save {
-    border-radius: 20px;
-    border: 0.0625rem solid lightcoral;
-    background-color: gray;
+  &__input {
+    border-radius: 4px;
+    border: 0.0625rem solid lightgray;
+    &::before {
+      content: "Cant find a coping strategy that matches your feelings?\n Create your own!";
+      display: block;
+      white-space: pre;
+      line-height: 1.2;
+    }
+  }
+  &__save,
+  &__delete {
+    padding: 12px;
+    border-radius: 12px;
+    border: 0.0625rem solid #83af9b;
+    background-color: #83af9b;
   }
 }

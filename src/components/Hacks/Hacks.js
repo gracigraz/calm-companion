@@ -71,7 +71,7 @@ function Hacks() {
   const onSubmitStrategy = async () => {
     try {
       await addDoc(copingStrategiesCollectionRef, {
-        Name: newStrategyName,
+        name: newStrategyName,
       });
       getStrategyList();
     } catch (error) {
@@ -88,19 +88,20 @@ function Hacks() {
         <div className="hacks__container">
           {strategyList.map((strategy) => (
             <button key={doc.id} className="hacks__button">
-              {strategy.Name}
+              {strategy.name}
             </button>
           ))}
-
           <input
-            placeholder="Can't find a coping strategy that matches your feelings? Create your own!"
+            className="hacks__input"
+            // placeholder="Can't find a coping strategy that matches your feelings? Create your own!"
             onChange={(event) => setNewStrategyName(event.target.value)}
           ></input>
+
           <button className="hacks__save" onClick={onSubmitStrategy}>
             +
           </button>
-          <button className="hacks__delete" onClick={() => deleteStrategy(id)}>
-            -
+          <button className="hacks__delete">
+            {/* onClick={() => deleteStrategy(id)} */}-
           </button>
         </div>
       </div>
