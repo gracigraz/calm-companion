@@ -28,7 +28,7 @@ function App() {
         <Route path="/gratitude" element={<Gratitude />} />
         <Route path="/hacks" element={<Hacks />} />
         <Route path="/myspots" element={<Spots />} />
-
+        <Route path="/mycontacts" element={<Contacts />} />
         {/* <Route path="/:id" /> */}
         <Route path="/urgent-care" element={<MapUrgentCare />} />
         <Route path="/emergency-room" element={<MapER />} />
