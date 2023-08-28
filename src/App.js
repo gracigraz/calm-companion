@@ -13,6 +13,7 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import Toolkit from "./components/Toolkit/Toolkit";
 import Gratitude from "./components/Gratitude/Gratitude";
 import Hacks from "./components/Hacks/Hacks";
+import Spots from "./components/Spots/Spots";
 const cookies = new Cookies();
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
         <Route path="/toolkit" element={<Toolkit />} />
         <Route path="/gratitude" element={<Gratitude />} />
         <Route path="/hacks" element={<Hacks />} />
+        <Route path="/myspots" element={<Spots />} />
+
         {/* <Route path="/:id" /> */}
         <Route path="/urgent-care" element={<MapUrgentCare />} />
         <Route path="/emergency-room" element={<MapER />} />

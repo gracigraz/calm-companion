@@ -22,7 +22,7 @@ $color-pink: #fe4365;
 
   &__container {
     transform: translatey(0px);
-    animation: float 5s ease-in-out infinite;
+    animation: float 3s ease-in-out 2;
     text-align: center;
     font-weight: bold;
     letter-spacing: 2.5px;
@@ -38,7 +38,7 @@ $color-pink: #fe4365;
 
     &:after {
       transform: translatey(0px);
-      animation: float2 5s ease-in-out infinite;
+      animation: float2 3s ease-in-out 2;
       content: ".";
       font-weight: bold;
       // -webkit-text-stroke: 0.5px $color-green;
@@ -70,9 +70,11 @@ $color-pink: #fe4365;
     text-transform: uppercase;
   }
   &__buttons {
+    opacity: 1;
     margin-top: 3rem;
     display: flex;
     gap: 1rem;
+    animation: showButtons 9s ease-in-out 1;
   }
   &__button {
     font-weight: 500;
@@ -114,5 +116,14 @@ $color-pink: #fe4365;
   100% {
     line-height: 30px;
     transform: translatey(0px);
+  }
+}
+
+@keyframes showButtons {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
