@@ -1,7 +1,15 @@
 import "./Mood.scss";
+import React, { useEffect, useState } from "react";
+import { db, auth } from "../../firebase-config";
+import {
+  collection,
+  addDoc,
+  serverTimestamp, //function from firebase that creates a timestamp
+} from "firebase/firestore";
 
 function Mood() {
   const [mood, setMood] = useState(0);
+  const moodsCollectionRef = collection(db, "moods");
 
   const handleMoodChange = (newMood) => {
     setMood(newMood);
@@ -10,10 +18,13 @@ function Mood() {
   const handleSaveMood = async () => {
     try {
       // Save the mood to Firebase Firestore
-      await db.collection("moods").add({
+
+      await addDoc(moodsCollectionRef, {
         mood: mood,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        createdAt: serverTimestamp(),
+        // uid: user.uid,
       });
+
       console.log("Mood saved to Firebase:", mood);
 
       // Reset the mood to 0 after saving

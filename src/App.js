@@ -16,6 +16,7 @@ import Hacks from "./components/Hacks/Hacks";
 import Spots from "./components/Spots/Spots";
 import Contacts from "./components/Contacts/Contacts";
 import ChatPage from "./pages/ChatPage/ChatPage";
+import Mood from "./components/Mood/Mood";
 const cookies = new Cookies();
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/urgent-care" element={<MapUrgentCare />} />
         <Route path="/emergency-room" element={<MapER />} />
         <Route path="/chat" element={<ChatPage />} />
+        <Route path="/mood" element={<Mood />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
