@@ -1,56 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import "./MapUrgentCare.scss";
+import Map, { Marker } from "react-map-gl";
 
 function MapUrgentCare() {
+  const [locations, setLocations] = useState([]);
+  // const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_DEFAULT_ACCESS_TOKEN;
   const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
+  // mapboxgl.accessToken = ACCESS_TOKEN;
+
+  // const map = new mapboxgl.Map({
+  //   container: "map",
+  //   style: "mapbox://styles/mapbox/dark-v11",
+  //   center: [25.793449, -80.139198],
+  //   zoom: 9,
+  // });
   useEffect(() => {
-    mapboxgl.accessToken = ACCESS_TOKEN;
-
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/mapbox/dark-v11",
-      center: [25.793449, -80.139198],
-      zoom: 9,
-    });
-
-    const searchJS = document.createElement("script");
-    searchJS.src = "https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js";
-
-    searchJS.onload = function () {
-      const searchBox = new window.MapboxSearchBox();
-      searchBox.accessToken = ACCESS_TOKEN;
-      searchBox.options = {
-        types: "address, poi, category, postcode",
-        // poi_category:
-        //   "doctor's office, health services, services,medical clinic,emergency room, hospital",
-        poi_category: "emergency_room",
-        proximity: [25.793449, -80.139198],
-      };
-      searchBox.marker = true;
-      searchBox.mapboxgl = mapboxgl;
-      map.addControl(searchBox);
-    };
-
-    document.body.appendChild(searchJS);
-
-    return () => {
-      map.remove();
-      document.body.removeChild(searchJS);
-    };
+    axios
+      .get(
+        "https://api.mapbox.com/search/searchbox/v1/suggest?q=urgent+care&language=en&proximity=-80.139198,25.793449&types=poi&session_token=0f4f2121-34e4-45a1-88a3-4476a1704c44&access_token=" +
+          ACCESS_TOKEN
+      )
+      .then((response) => {
+        // const fetchedLocations = response.data.features;
+        const fetchedLocations = response.data.suggestions;
+        console.log(response);
+        setLocations(fetchedLocations);
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
   }, []);
 
   return (
-    <div className="map">
+    <div className="mapbox-locations">
       <h4 className="map__title">We got you - search for urgent care NOW!</h4>
-      <div
-        className="map__map-container"
-        id="map"
-        style={{ position: "absolute", width: "100%", height: "100%" }}
-      />
+      <div className="locations-list">
+        {locations.map((location, index) => (
+          <div key={index} className="location-item">
+            <h4> {location.name}</h4>
+            <p>{location.full_address}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
-
 export default MapUrgentCare;

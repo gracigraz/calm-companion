@@ -4,7 +4,7 @@ import axios from "axios";
 import "./Crisis.scss";
 
 function MapboxLocations() {
-  const [locations, setLocations] = useState([]);
+  const [locatiuns, setLocations] = useState([]);
   const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_DEFAULT_ACCESS_TOKEN;
 
   useEffect(() => {
@@ -28,10 +28,10 @@ function MapboxLocations() {
     <div className="mapbox-locations">
       <h4>Urgent Care Locations</h4>
       <div className="locations-list">
-        {locations.map((location, index) => (
+        {locatiuns.map((locatiun, index) => (
           <div key={index} className="location-item">
-            <h4> {location.name}</h4>
-            <p>{location.full_address}</p>
+            <h4> {locatiun.name}</h4>
+            <p>{locatiun.full_address}</p>
           </div>
           // {locations.map((location, index) => (
           //   <div key={index} className="location-item">
