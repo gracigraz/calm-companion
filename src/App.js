@@ -15,6 +15,7 @@ import Gratitude from "./components/Gratitude/Gratitude";
 import Hacks from "./components/Hacks/Hacks";
 import Spots from "./components/Spots/Spots";
 import Contacts from "./components/Contacts/Contacts";
+import ChatPage from "./pages/ChatPage/ChatPage";
 const cookies = new Cookies();
 
 function App() {
@@ -30,9 +31,9 @@ function App() {
         <Route path="/hacks" element={<Hacks />} />
         <Route path="/myspots" element={<Spots />} />
         <Route path="/mycontacts" element={<Contacts />} />
-        {/* <Route path="/:id" /> */}
         <Route path="/urgent-care" element={<MapUrgentCare />} />
         <Route path="/emergency-room" element={<MapER />} />
+        <Route path="/chat" element={<ChatPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

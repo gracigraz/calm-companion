@@ -68,4 +68,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # calm-companion
+
+Sign in with google to continue or sign in with email and password or create an account to sign in.
+Authentication
+
+Chat App
+If you want to tak to another person you have to be in the smae room as them, this allows us to have conversations with users from individual groups. We can have many conversations at the same time without interferring with eachother.

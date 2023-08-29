@@ -7,8 +7,11 @@ import {
   signOut,
 } from "firebase/auth";
 import "./Auth.scss";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
-function Auth() {
+function Auth(props) {
+  const { setIsAuth } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -22,14 +25,16 @@ function Auth() {
       });
   };
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, provider)
-      .then(() => {
-        console.log("Signed in with Google successfully");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const signInWithGoogle = async () => {
+    const result = await signInWithPopup(auth, provider);
+    try {
+      console.log(result);
+      console.log("Signed in with Google successfully");
+      cookies.set("auth-token", result.user.refreshToken);
+      setIsAuth(true); //is set to true when ever you log in
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const logOut = () => {
