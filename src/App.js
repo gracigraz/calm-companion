@@ -14,6 +14,7 @@ import Toolkit from "./components/Toolkit/Toolkit";
 import Gratitude from "./components/Gratitude/Gratitude";
 import Hacks from "./components/Hacks/Hacks";
 import Spots from "./components/Spots/Spots";
+import Contacts from "./components/Contacts/Contacts";
 const cookies = new Cookies();
 
 function App() {

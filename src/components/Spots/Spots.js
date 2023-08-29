@@ -9,6 +9,10 @@ function Spots() {
           worries!
         </h4>
         <div className="spots__map" id="map"></div>
+
+        <input className="spots__name" placeholder="Name" />
+        <button className="spots__add">+ Add Spot</button>
+        {/* button changes color when added */}
       </div>
     </>
   );
