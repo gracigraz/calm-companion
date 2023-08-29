@@ -10,7 +10,7 @@ import {
 function Mood() {
   const [mood, setMood] = useState(0);
   const moodsCollectionRef = collection(db, "moods");
-
+  const usersCollectionRef = collection(db, "users");
   const handleMoodChange = (newMood) => {
     setMood(newMood);
   };
@@ -19,11 +19,16 @@ function Mood() {
     try {
       // Save the mood to Firebase Firestore
 
-      await addDoc(moodsCollectionRef, {
+      await addDoc(usersCollectionRef, {
         mood: mood,
         createdAt: serverTimestamp(),
         // uid: user.uid,
       });
+      //   await addDoc(moodsCollectionRef, {
+      //     mood: mood,
+      //     createdAt: serverTimestamp(),
+      //     // uid: user.uid,
+      //   });
 
       console.log("Mood saved to Firebase:", mood);
 
@@ -36,6 +41,7 @@ function Mood() {
 
   return (
     <div className="mood">
+      <h3 className="mood__exit">X</h3>
       <h4 className="mood__title">
         Hey, just so you know – every time you make an entry in your log, you're
         moving a bit closer to feeling awesome again. Keep it up! You got this!
