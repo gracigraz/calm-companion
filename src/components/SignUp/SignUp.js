@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../firebase-config.js"; // Import both auth and firestore instances
 import {
+  setDoc,
   collection,
   getDocs,
   addDoc,
@@ -13,6 +14,7 @@ import {
 import "./SignUp.scss";
 
 function SignUp() {
+  const navigate = useNavigate();
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerName, setRegisterName] = useState("");
@@ -22,15 +24,23 @@ function SignUp() {
   const register = () => {
     createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
       .then((userCredential) => {
-        const user = userCredential.user;
-        // Store additional user info in Firestore
-        addDoc(usersCollectionRef, {
+        const userID = userCredential.user.uid;
+        setDoc(doc(db, "users", userID), {
           firstName: registerName,
           lastName: registerLastName,
-          email: user.email,
-          uid: user.uid,
+          email: registerEmail,
+          uid: userID,
         });
-        console.log("User registered:", user);
+        // Store additional user info in Firestore
+        // addDoc(usersCollectionRef, {
+        //   firstName: registerName,
+        //   lastName: registerLastName,
+        //   email: user.email,
+        //   uid: user.uid,
+        // });
+        alert("User registered");
+        navigate("/login");
+        // console.log("User registered:", userID);
       })
       .catch((error) => {
         console.log(error.message);

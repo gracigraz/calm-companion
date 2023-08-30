@@ -17,6 +17,7 @@ import Spots from "./components/Spots/Spots";
 import Contacts from "./components/Contacts/Contacts";
 import ChatPage from "./pages/ChatPage/ChatPage";
 import Mood from "./components/Mood/Mood";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
 const cookies = new Cookies();
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
         <Route path="/login" element={<Auth />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/crisis" element={<Crisis />} />
-        <Route path="/toolkit" element={<Toolkit />} />
+        {/* <Route path="/toolkit" element={<Toolkit />} /> */}
         <Route path="/gratitude" element={<Gratitude />} />
         <Route path="/hacks" element={<Hacks />} />
         <Route path="/myspots" element={<Spots />} />
@@ -36,6 +37,7 @@ function App() {
         <Route path="/emergency-room" element={<MapER />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/mood" element={<Mood />} />
+        <Route path="/dashboard" element={<Mood />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

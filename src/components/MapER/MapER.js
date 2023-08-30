@@ -1,93 +1,70 @@
-import { GoogleMap, Marker, LoadScript } from "@react-google-maps/api";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import * as React from "react";
+import Map, { Marker } from "react-map-gl";
+import axios from "axios";
+import pin from "../../assets/icons/pin.png";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function MapER() {
-  const containerStyle = {
-    width: "300px",
-    height: "400px",
-  };
-
-  const center = {
-    lat: 25.8017,
-    lng: -80.2034,
-  };
-
-  const options = {
-    disableDefaultUI: true,
-    zoomControl: true,
-  };
-
-  let map;
-
-  async function initMap() {
-    const { Map } = await window.google.maps.importLibrary("maps");
-
-    // initMap();
-    //   const initMap = () => {
-    //     let map = new window.google.maps.Map(document.getElementById("map"), {
-    //       center: center,
-    //       zoom: 14,
-    //       options: options,
-    //     });
-
-    const placesService = new window.google.maps.places.PlacesService(map);
-
-    const request = {
-      location: new window.google.maps.LatLng(center.lat, center.lng),
-      radius: 10000,
-      type: ["hospital", "health"],
-    };
-
-    placesService.nearbySearch(request, (results, status) => {
-      if (status === window.google.maps.places.PlacesServiceStatus.OK) {
-        results.forEach((place) => {
-          createMarker(place, map);
-        });
-      }
-    });
-  }
-  function createMarker(place, map) {
-    new window.google.maps.Marker({
-      position: place.geometry.location,
-      map: map,
-    });
-  }
-
+  const [locations, setLocations] = useState([]);
+  // const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_DEFAULT_ACCESS_TOKEN;
+  const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
   useEffect(() => {
-    if (window.google && window.google.maps) {
-      initMap(); // Call the map initialization if Google Maps API is loaded
-    } else {
-      // Listen for the Google Maps API to be fully loaded
-      const script = document.createElement("script");
-      script.src =
-        `https://maps.googleapis.com/maps/api/js?key=` +
-        process.env.REACT_APP_GOOGLE_APIKEY +
-        `&libraries=places`;
-      script.onload = initMap; // Call initMap once the script is loaded
-      document.head.appendChild(script);
-    }
-  }, []); // Empty dependency array to run the effect only once
+    axios
+      .get(
+        "https://api.mapbox.com/search/searchbox/v1/category/emergency_room?access_token=" +
+          ACCESS_TOKEN +
+          "&language=en&limit=7&proximity=-80.188109%2C25.807706"
+      )
+      .then((response) => {
+        const fetchedLocations = response.data.features;
+        console.log(response);
+        setLocations(fetchedLocations);
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
+  }, []);
 
   return (
     <>
-      <div>
-        <LoadScript googleMapsApiKey={process.env.REACT_APP_GOOGLE_APIKEY}>
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={14}
-            options={options}
-          ></GoogleMap>
-        </LoadScript>
+      <div className="mapbox-locations">
+        <h4 className="map__title">
+          We got you - search for Emergency Rooms NOW!
+        </h4>
+        <Map
+          className="Emergency__map"
+          mapboxAccessToken={ACCESS_TOKEN}
+          initialViewState={{
+            longitude: -81,
+            latitude: 25,
+            zoom: 9,
+          }}
+          style={{ position: "absolute", width: "100%", height: "50%" }}
+          mapStyle="mapbox://styles/mapbox/dark-v11"
+        >
+          {locations.map((location, index) => (
+            <Marker
+              key={index}
+              longitude={location.geometry.coordinates[0]}
+              latitude={location.geometry.coordinates[1]}
+              anchor="bottom"
+              color="FFFFFF"
+              width="5%"
+            />
+          ))}
+        </Map>
+        <div className="locations-list">
+          {locations.map((location, index) => (
+            <div key={index} className="location-item">
+              <h4> {location.properties.name}</h4>:
+              <p>{location.properties.full_address}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );
 }
-export default MapER;
 
-// function initMap() {
-//   let mapOptions = {
-//     center: new google.maps.LatLng("25.8017", "-80.2034"),
-//   };
-//   let map = new google.maps.Map(document.getElementById("map"), mapOptions);
-// }
+export default MapER;

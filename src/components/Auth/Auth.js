@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth, provider } from "../../firebase-config.js";
 import {
   signInWithEmailAndPassword,
@@ -14,11 +14,17 @@ function Auth(props) {
   const { setIsAuth } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const signIn = () => {
+    console.log("See me?");
     signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
+      .then((userCredential) => {
+        console.log(userCredential);
+        let user = userCredential.user.uid;
+        localStorage.setItem("user", user);
         console.log("Sign in successfully");
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.error(error);

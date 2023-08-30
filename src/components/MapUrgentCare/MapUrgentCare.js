@@ -3,6 +3,7 @@ import axios from "axios";
 import mapboxgl from "mapbox-gl";
 import "./MapUrgentCare.scss";
 import Map, { Marker } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
 
 function MapUrgentCare() {
   const [locations, setLocations] = useState([]);
@@ -14,7 +15,7 @@ function MapUrgentCare() {
   // const map = new mapboxgl.Map({
   //   container: "map",
   //   style: "mapbox://styles/mapbox/dark-v11",
-  //   center: [25.793449, -80.139198],
+  //   center: [25.793449, -80.139198], //miami beach locations
   //   zoom: 9,
   // });
   useEffect(() => {
