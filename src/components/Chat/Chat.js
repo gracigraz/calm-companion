@@ -13,6 +13,8 @@ import {
 import "./Chat.scss";
 
 function Chat(props) {
+  //   const [nickname, setNickname] = useState("");
+
   const { chatRoom } = props;
 
   const [newMessage, setNewMessage] = useState("");
@@ -53,6 +55,14 @@ function Chat(props) {
       chatRoom, //which room are these messages being interchanged
     });
 
+    // await addDoc(messagesRef, {
+    //   message: newMessage,
+    //   createdAt: serverTimestamp(),
+    //   user: auth.currentUser.uid,
+    //   nickname: nickname, // Save the nickname for it to be anonymous
+    //   chatRoom,
+    // });
+
     setNewMessage(""); //once we add the message in the db we want to empty it out
   };
   const handleEndChat = () => {
@@ -64,6 +74,13 @@ function Chat(props) {
       <div className="chat__header">
         <h4 className="chat__title">Hello there, welcome to {chatRoom}</h4>
       </div>
+      {/* <input
+        type="text"
+        className="chat__nickname"
+        placeholder="Enter your nickname"
+        value={nickname}
+        onChange={(event) => setNickname(event.target.value)}
+      /> */}
       <div className="chat__messages">
         {messages.map((message) => (
           <div className="chat__message" key={message.id}>
@@ -71,6 +88,13 @@ function Chat(props) {
             {message.message}
           </div>
         ))}
+        {/* //alternative map with nickname try it out */}
+        {/* {messages.map((message) => (
+          <div className="chat__message" key={message.id}>
+            <span className="chat__user">{message.nickname}:</span>{" "}
+            {message.message}
+          </div>
+        ))} */}
       </div>
       <form className="chat__form" onSubmit={handleSubmit}>
         <input
