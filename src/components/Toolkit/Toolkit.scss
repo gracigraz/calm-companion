@@ -3,19 +3,33 @@
 @use "../../styles/partials/mixins" as *;
 
 .toolkit {
-  &__container {
+  padding 1.5remm &__container {
     background-color: white;
     display: flex;
     flex-direction: column;
   }
   &__banner {
     background-color: grayscale($color: #faf7f7);
-    background-image: url("../../assets/icons/next.png");
+    background-image: url("../../assets/icons/user-plus-solid.svg");
+    // color: #595e60;
+    // <FontAwesomeIcon icon={solid("user-plus")} style={{color: "#595e60",}} />
     background-size: 8%;
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: center;
     padding: 0.75rem 1rem;
+    // .background-container {
+    //   width: 100px; /* Adjust width as needed */
+    //   height: 100px; /* Adjust height as needed */
+    //   display: flex;
+    //   justify-content: center;
+    //   align-items: center;
+    //   background-size: cover;
+    // }
+    svg {
+      color: #595e60;
+      width: 50%;
+    }
   }
   &__title {
     font-family: "Quicksand", sans-serif;

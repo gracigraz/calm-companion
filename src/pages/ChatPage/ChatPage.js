@@ -42,7 +42,7 @@
 // }
 
 // export default ChatPage;
-
+import Nav from "../../components/Nav/Nav.js";
 import React, { useState } from "react";
 import Chat from "../../components/Chat/Chat.js";
 import Auth from "../../components/Auth/Auth.js";
@@ -66,41 +66,49 @@ function ChatPage() {
   };
 
   return (
-    <div className="App">
-      <div className="app-header">
-        <h1> Chat App </h1>
-      </div>
-
-      <div className="app-container">
-        {isAuth ? (
-          <div>
-            {!isInChat ? (
-              <div className="room">
-                <label> Type room name: </label>
-                <input onChange={(e) => setChatRoom(e.target.value)} />
-                <button
-                  onClick={() => {
-                    setIsInChat(true);
-                  }}
-                >
-                  Enter Chat
-                </button>
-              </div>
-            ) : (
-              <Chat chatRoom={chatRoom} />
-            )}
-          </div>
-        ) : (
-          <Auth setIsAuth={setIsAuth} />
-        )}
-      </div>
-
-      {isAuth && (
-        <div className="sign-out">
-          <button onClick={handleSignOut}> Sign Out</button>
+    <>
+      <main className="chat-page">
+        {/* <div className="chat-page__header">
+          <h1> Chat App </h1>
+        </div> */}
+        <div className="chat-page__container">
+          {isAuth ? (
+            <div>
+              {!isInChat ? (
+                <div className="chat-page__room">
+                  <label className="chat-page__label">
+                    Room Name (Give it a cool title!):{" "}
+                  </label>
+                  <input
+                    className="chat-page__input"
+                    onChange={(e) => setChatRoom(e.target.value)}
+                  />
+                  <button
+                    className="chat-page__button"
+                    onClick={() => {
+                      setIsInChat(true);
+                    }}
+                  >
+                    Jump into the Conversation
+                  </button>
+                </div>
+              ) : (
+                <Chat chatRoom={chatRoom} />
+              )}
+            </div>
+          ) : (
+            <Auth setIsAuth={setIsAuth} />
+          )}
         </div>
-      )}
-    </div>
+
+        {isAuth && (
+          <div className="sign-out">
+            <button onClick={handleSignOut}> Sign Out</button>
+          </div>
+        )}
+      </main>
+      <Nav />
+    </>
   );
 }
 

@@ -1,3 +1,7 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
 .not-found {
   padding: 3rem;
   display: flex;
@@ -12,11 +16,11 @@
     border-radius: 50%;
     width: 72px;
     height: 72px;
-    background-color: #0b224d;
+    background-color: $color-sinbad;
   }
 
   &__error {
-    color: #f4bc44;
+    color: $color-wheatfield;
     font-family: "Quicksand", sans-serif;
     font-size: 36px;
     font-style: normal;
@@ -27,7 +31,7 @@
     margin-block-end: 0;
   }
   &__message {
-    color: #0b224d;
+    color: $color-gunmetal-gray;
     font-family: "Quicksand", sans-serif;
     font-size: 14px;
     font-style: normal;

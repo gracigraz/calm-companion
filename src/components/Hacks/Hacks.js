@@ -91,11 +91,15 @@ function Hacks() {
               {strategy.name}
             </button>
           ))}
-          <input
-            className="hacks__input"
-            // placeholder="Can't find a coping strategy that matches your feelings? Create your own!"
-            onChange={(event) => setNewStrategyName(event.target.value)}
-          ></input>
+          <label className="hacks__label">
+            Can't find a coping strategy that matches your feelings? Create your
+            own!
+            <input
+              className="hacks__input"
+              // placeholder="Can't find a coping strategy that matches your feelings? Create your own!"
+              onChange={(event) => setNewStrategyName(event.target.value)}
+            />
+          </label>
 
           <button className="hacks__save" onClick={onSubmitStrategy}>
             +

@@ -1,0 +1,42 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.crisis {
+  padding: 1.5rem;
+  height: 100%;
+  &__title {
+    color: $color-sinbad;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin: 1rem;
+    text-align: left;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  &__911,
+  &__988,
+  &__ER,
+  &__urgent-care {
+    border-radius: 20px;
+    border: 1px solid $color-wheatfield;
+    background-color: $color-wheatfield;
+    color: $color-sinbad;
+    width: 100px;
+    height: 100px;
+    //when selected
+    // border: 1px solid $color-sinbad;
+    // background-color: $color-sinbad;
+  }
+}

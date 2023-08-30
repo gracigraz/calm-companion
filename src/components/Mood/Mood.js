@@ -14,13 +14,12 @@ function Mood() {
   const [mood, setMood] = useState(0);
   const loggedUser = localStorage.getItem("user");
   const [userData, setUserData] = useState([]);
-  const [previousDayMood, setPreviousDayMood] = useState(80);
+
   const usersCollectionRef = collection(db, "users");
   const conditionUser = userData === null ? true : false;
 
   //   const currentUserCollectionRef = collection(db, "users", loggedUser);
   const handleMoodChange = (newMood) => {
-    setPreviousDayMood(newMood);
     setMood(newMood);
   };
 
@@ -62,6 +61,10 @@ function Mood() {
     setMood(0);
   };
 
+  const handleExit = async () => {
+    setMood(0);
+  };
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -87,13 +90,10 @@ function Mood() {
   return (
     <div className="mood">
       <p>Current User {loggedUser}</p>
-      <h3 className="mood__exit">X</h3>
-      <h4 className="mood__title">
-        Hey, just so you know – every time you make an entry in your log, you're
-        moving a bit closer to feeling awesome again. You got this! 😉
-      </h4>
+
+      <h4 className="mood__title">How are you today?!</h4>
       <div>
-        <div className="progress-container">
+        <div className="mood__progress-container">
           <div className="progress-bar" style={{ width: `${mood}%` }}></div>
         </div>
 
@@ -105,7 +105,12 @@ function Mood() {
           <button onClick={() => handleMoodChange(100)}>Amazing</button>
         </div>
 
-        <button onClick={moodClick}>Save Mood</button>
+        <button className="mood__save" onClick={moodClick}>
+          Save Mood
+        </button>
+        <h3 className="mood__exit" onClick={handleExit}>
+          X
+        </h3>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import Mood from "../../components/Mood/Mood";
 import Toolkit from "../../components/Toolkit/Toolkit";
 import AbcQuestionnaire from "../../components/AbcQuestionnaire/AbcQuestionnaire";
+import Nav from "../../components/Nav/Nav";
 
 function DashboardPage() {
   return (
@@ -8,13 +9,16 @@ function DashboardPage() {
       <main className="dashboard">
         <h1 className="dashboard__title">Hey Friend! </h1>
         <div className="dashboard__container">
-          <h4 className="dashboard__error">How are you today?!</h4>
-          <h4>Test</h4>
-          {/* <Mood />
-          <Toolkit /> */}
+          <p className="dashboard__intro">
+            Just so you know – every time you make an entry in your log, you're
+            moving a bit closer to feeling awesome again. You got this! 😉
+          </p>
+          <Mood />
+          <Toolkit />
           {/* <AbcQuestionnaire /> */}
         </div>
       </main>
+      <Nav />
     </>
   );
 }

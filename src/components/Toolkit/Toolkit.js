@@ -10,8 +10,14 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import "./Toolkit.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 function Toolkit() {
+  const backgroundStyle = {
+    backgroundImage: `url("../../assets/icons/user-plus-solid.svg")`, // Replace with your image path
+  };
   const handleHacks = () => {
     window.location.href = "/hacks";
   };
@@ -19,7 +25,7 @@ function Toolkit() {
     window.location.href = "/gratitude";
   };
   const handleCompanions = () => {
-    window.location.href = "/companions";
+    window.location.href = "/mycontacts";
   };
   const handleSpots = () => {
     window.location.href = "/myspots";
@@ -29,10 +35,16 @@ function Toolkit() {
     <>
       <main className="toolkit">
         <div className="toolkit__container">
-          <div className="toolkit__banner" onClick={handleHacks}>
+          <div
+            className="toolkit__banner"
+            style={backgroundStyle}
+            onClick={handleHacks}
+          >
             <h4 className="toolkit__title toolkit__title--hacks">
+              <FontAwesomeIcon icon={faUserPlus} style={{ color: "#595e60" }} />
               Keep-calm hacks
             </h4>
+            <FontAwesomeIcon icon={faUserPlus} style={{ color: "#595e60" }} />
           </div>
           <div className="toolkit__banner" onClick={handleGratitude}>
             <h4 className="toolkit__title toolkit__title--gratitude">

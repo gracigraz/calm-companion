@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import "./Crisis.scss";
+import "./CrisisPage.scss";
 
 function MapboxLocations() {
   const [locatiuns, setLocations] = useState([]);
@@ -46,7 +46,7 @@ function MapboxLocations() {
   );
 }
 
-function Crisis() {
+function CrisisPage() {
   const [showMapboxLocations, setShowMapboxLocations] = useState(false);
 
   const handleCallEmergency = () => {
@@ -67,31 +67,33 @@ function Crisis() {
 
   return (
     <>
-      <div className="crisis">
+      <main className="crisis">
         <h2 className="crisis__title">Help is available!</h2>
-        <div className="crisis__buttons">
-          <button className="crisis__911" onClick={handleCallEmergency}>
-            Call 911
-          </button>
-          <button className="crisis__988" onClick={handleCallHelpLine}>
-            Call 988
-          </button>
+        <div className="crisis__container">
+          <div className="crisis__buttons">
+            <button className="crisis__911" onClick={handleCallEmergency}>
+              Call 911
+            </button>
+            <button className="crisis__988" onClick={handleCallHelpLine}>
+              Call 988
+            </button>
+          </div>
+          <div className="crisis__buttons">
+            <button
+              className="crisis__urgent-care"
+              onClick={handleFindUrgentCare}
+            >
+              Find Urgent Care Near You
+            </button>
+            <button className="crisis__ER" onClick={handleFindER}>
+              Find Emergency Room Near You
+            </button>
+          </div>
         </div>
-        <div className="crisis__buttons">
-          <button
-            className="crisis__urgent-care"
-            onClick={handleFindUrgentCare}
-          >
-            Find Urgent Care Near You
-          </button>
-          <button className="crisis__ER" onClick={handleFindER}>
-            Find Emergency Room Near You
-          </button>
-        </div>
-      </div>
+      </main>
       {showMapboxLocations && <MapboxLocations />}
     </>
   );
 }
 
-export default Crisis;
+export default CrisisPage;

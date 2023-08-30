@@ -5,7 +5,6 @@ import { useState } from "react";
 import Welcome from "./components/Welcome/Welcome";
 import Auth from "./components/Auth/Auth";
 import SignUp from "./components/SignUp/SignUp";
-import Crisis from "./components/Crisis/Crisis";
 import MapER from "./components/MapER/MapER";
 import MapUrgentCare from "./components/MapUrgentCare/MapUrgentCare";
 import Cookies from "universal-cookie";
@@ -18,6 +17,7 @@ import Contacts from "./components/Contacts/Contacts";
 import ChatPage from "./pages/ChatPage/ChatPage";
 import Mood from "./components/Mood/Mood";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import CrisisPage from "./pages/CrisisPage/CrisisPage";
 const cookies = new Cookies();
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
         <Route path="/" element={<Welcome />} />
         <Route path="/login" element={<Auth />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/crisis" element={<Crisis />} />
+        <Route path="/crisis" element={<CrisisPage />} />
         {/* <Route path="/toolkit" element={<Toolkit />} /> */}
         <Route path="/gratitude" element={<Gratitude />} />
         <Route path="/hacks" element={<Hacks />} />
@@ -37,7 +37,7 @@ function App() {
         <Route path="/emergency-room" element={<MapER />} />
         <Route path="/chat" element={<ChatPage />} />
         <Route path="/mood" element={<Mood />} />
-        <Route path="/dashboard" element={<Mood />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>

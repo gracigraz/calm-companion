@@ -1,0 +1,14 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.chat-page {
+  padding: 1.5rem;
+  height: 100%;
+  &__container {
+  }
+  &__room {
+  }
+  &__label {
+  }
+}

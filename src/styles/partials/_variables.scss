@@ -16,9 +16,23 @@ $color-pink: #fe4365;
 $supporting-green: #158463;
 $supporting-red: #c94515; //error states
 
-$color-Sinbad: #a4d3c3;
-$color-Wheatfield: #f3ecd3;
-$color-Surf-Crest: #c4dfc5;
-$color-Fringy-Flower: #acdcc1;
-$color-Gunmetal-Gray: #595e60;
-$color-Pewter: #d1d0d0;
+$color-sinbad: #a4d3c3;
+// RGB(164,211,195 blue
+$color-wheatfield: #f3ecd3;
+// RGB(243, 236, 211)
+$color-surf-crest: #c4dfc5;
+$color-fringy-flower: #acdcc1;
+// RGB(172,220,193
+$color-gunmetal-gray: #595e60;
+$color-pewter: #d1d0d0;
+
+// //https://fontawesome.com/docs/web/use-with/react/add-icons
+// import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+// // 'classic' is the default family, you can leave that off
+// icon({name: 'user', style: 'solid'})
+// icon({name: 'user', style: 'regular'})
+
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+
+// <FontAwesomeIcon icon={icon({name: 'coffee', style: 'regular'})} />

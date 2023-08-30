@@ -76,3 +76,27 @@ Authentication
 
 Chat App
 If you want to tak to another person you have to be in the smae room as them, this allows us to have conversations with users from individual groups. We can have many conversations at the same time without interferring with eachother.
+
+Built With:
+This section lists the major frameworks/libraries used to build this project.
+
+- React, Firebase
+
+## Getting Started:
+
+To get a local copy up and running follow these simple example steps.
+
+1. Clone the repo
+   git clone https://github.com/gracigraz/calm-companion.git
+2. Install NPM packages
+   npm install
+
+## Usage
+
+This section shows examples of how the project can be used. Additional screenshots, code examples and demos work well in this space and links to more resources.
+
+## Contact
+
+Graciela Manzanares - gracielamanzsousa@gmail.com
+
+## Project Link: https://github.com/gracigraz/calm-companion.git

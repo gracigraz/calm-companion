@@ -1,4 +1,5 @@
 import "./NotFoundPage.scss";
+import Nav from "../../components/Nav/Nav";
 
 function NotFoundPage() {
   return (
@@ -12,6 +13,7 @@ function NotFoundPage() {
           everything is STILL AWESOME
         </p>
       </main>
+      <Nav />
     </>
   );
 }

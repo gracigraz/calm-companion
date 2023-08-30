@@ -1,0 +1,27 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.menu {
+    padding: 1.15rem
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  padding: 10px;
+  background-color: $color-sinbad;
+  position: fixed; /* Stick the footer to the bottom */
+  width: 100%; /* Make footer full width */
+  bottom: 0;
+  border-top: 2px solid $color-sinbad;
+  &__container {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__link {
+    text-decoration: none;
+  }
+  svg {
+    color: #a4d3c3;
+    width: 50%;
+  }
+}

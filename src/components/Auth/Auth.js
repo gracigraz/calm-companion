@@ -17,7 +17,6 @@ function Auth(props) {
   const navigate = useNavigate();
 
   const signIn = () => {
-    console.log("See me?");
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
@@ -38,6 +37,7 @@ function Auth(props) {
       console.log("Signed in with Google successfully");
       cookies.set("auth-token", result.user.refreshToken);
       setIsAuth(true); //is set to true when ever you log in
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
