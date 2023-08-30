@@ -67,7 +67,8 @@ function Chat(props) {
       <div className="chat__messages">
         {messages.map((message) => (
           <div className="chat__message" key={message.id}>
-            <span className="user">{message.user}:</span> {message.message}
+            <span className="chat__user">{message.user}:</span>{" "}
+            {message.message}
           </div>
         ))}
       </div>

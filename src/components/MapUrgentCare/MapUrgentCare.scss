@@ -2,12 +2,23 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-.map {
+.urgent-care {
   background-color: yellow;
+
   &__title {
     padding: 1rem;
     margin-block-start: 0;
     margin-block-end: 0;
     text-align: center;
+  }
+  &__list {
+  }
+  &__item {
+  }
+  &__name {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  &__address {
   }
 }

@@ -3,13 +3,34 @@
 @use "../../styles/partials/mixins" as *;
 
 .chat-app {
+  //I think this should go in chat-app page
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: sans-serif;
+  font-family: "Quicksand", sans-serif;
   width: 90%;
   margin: 0 auto;
   border-radius: 5px;
   overflow: hidden;
   border: 2px solid #3b5998;
+}
+.chat {
+  &__header {
+  }
+  &__title {
+  }
+  &__messages {
+  }
+  &__message {
+  }
+  &__user {
+  }
+  &__form {
+  }
+  &__new-message {
+  }
+  &__send-button {
+  }
+  &__end {
+  }
 }

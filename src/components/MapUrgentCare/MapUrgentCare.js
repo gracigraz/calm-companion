@@ -36,13 +36,15 @@ function MapUrgentCare() {
   }, []);
 
   return (
-    <div className="mapbox-locations">
-      <h4 className="map__title">We got you - search for urgent care NOW!</h4>
-      <div className="locations-list">
+    <div className="urgent-care">
+      <h4 className="urgent-care__title">
+        We got you - search for urgent care NOW!
+      </h4>
+      <div className="urgent-care__list">
         {locations.map((location, index) => (
-          <div key={index} className="location-item">
-            <h4> {location.name}</h4>
-            <p>{location.full_address}</p>
+          <div key={index} className="urgent-care__item">
+            <h4 className="urgent-care__name"> {location.name}</h4>
+            <p className="urgent-care__address">{location.full_address}</p>
           </div>
         ))}
       </div>
