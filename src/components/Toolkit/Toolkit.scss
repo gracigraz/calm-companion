@@ -3,7 +3,8 @@
 @use "../../styles/partials/mixins" as *;
 
 .toolkit {
-  padding 1.5remm &__container {
+  padding: 1.5rem;
+  &__container {
     background-color: white;
     display: flex;
     flex-direction: column;

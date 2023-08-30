@@ -3,14 +3,13 @@
 @use "../../styles/partials/mixins" as *;
 
 .menu {
-    padding: 1.15rem
+  padding: 1.15rem;
   flex-shrink: 0; /* Prevent footer from shrinking */
-  padding: 10px;
+  padding: 12px;
   background-color: $color-sinbad;
   position: fixed; /* Stick the footer to the bottom */
   width: 100%; /* Make footer full width */
   bottom: 0;
-  border-top: 2px solid $color-sinbad;
   &__container {
     list-style-type: none;
     display: flex;
