@@ -4,7 +4,7 @@
 
 .crisis {
   padding: 1.5rem;
-  height: 100%;
+  // height: 100%;
   &__title {
     color: $color-sinbad;
     margin-block-start: 0;
@@ -13,6 +13,7 @@
     text-align: left;
   }
   &__container {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,23 +21,33 @@
     gap: 1rem;
   }
   &__buttons {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
   }
   &__911,
   &__988,
   &__ER,
   &__urgent-care {
     border-radius: 20px;
-    border: 1px solid $color-wheatfield;
-    background-color: $color-wheatfield;
-    color: $color-sinbad;
-    width: 100px;
+    border: 1px solid $color-sinbad;
+    background-color: $color-sinbad;
+    color: $color-wheatfield;
+    @include font-m-h3-labels-links-buttons;
+    width: 100%;
     height: 100px;
+
     //when selected
-    // border: 1px solid $color-sinbad;
-    // background-color: $color-sinbad;
+
+    // border: 1px solid $color-wheatfield;
+    // background-color: $color-wheatfield;
+    //color: $color-sinbad;
   }
+}
+.clicked {
+  border: 1px solid $color-wheatfield;
+  background-color: $color-wheatfield;
+  color: $color-sinbad;
 }

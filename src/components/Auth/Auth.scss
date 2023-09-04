@@ -38,22 +38,20 @@
     }
   }
   &__alt {
-    // border-top: solid 0.0625rem lightgray;
-    // margin: 0 4rem;
     text-align: center;
     font-size: small;
-    color: gray;
+    color: $color-gunmetal-gray;
     font-family: "Quicksand", sans-serif;
   }
   &__email {
     border-radius: 4px;
-    border: solid lightgrey 1px;
+    border: solid $color-pewter 1px;
     padding: 0.5rem 1rem;
     font-family: "Quicksand", sans-serif;
   }
   &__password {
     border-radius: 4px;
-    border: solid lightgrey 1px;
+    border: solid $color-pewter 1px;
     padding: 0.5rem 1rem;
     font-family: "Quicksand", sans-serif;
   }
@@ -62,16 +60,16 @@
     border: none;
     padding: 0.5rem 1rem;
     background-color: transparent;
-    color: gray;
+    color: $color-gunmetal-gray;
     font-size: small;
     font-family: "Quicksand", sans-serif;
   }
   &__signin {
     border-radius: 4px;
-    border: solid lightgrey 1px;
+    border: solid $color-pewter 1px;
     padding: 0.5rem 1rem;
     font-family: "Quicksand", sans-serif;
-    color: gray;
+    color: $color-gunmetal-gray;
   }
   &__logout {
     display: none;

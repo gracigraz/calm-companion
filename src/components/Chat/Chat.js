@@ -70,6 +70,9 @@ function Chat(props) {
 
     setNewMessage(""); //once we add the message in the db we want to empty it out
   };
+  const handleNickname = () => {
+    window.location.href = "/dashboard";
+  };
   //   function that redirects the user to the home page when the "End Chat" button is clicked.
   const handleEndChat = () => {
     window.location.href = "/dashboard";
@@ -97,11 +100,8 @@ function Chat(props) {
           onChange={(event) => setNickname(event.target.value)}
         />
       </label>
-      <button className="chat__cancel" onClick={handleNickname}>
-        X
-      </button>
       <button className="chat__ok" onClick={handleNickname}>
-        OK
+        Save
       </button>
       <div className="chat__messages">
         {/* {messages.map((message) => (

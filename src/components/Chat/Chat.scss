@@ -34,6 +34,14 @@
   &__new-message {
   }
   &__send-button {
+    @include font-m-h3-labels-links-buttons;
+    background-color: $color-sinbad;
+    padding: 0.75rem 2rem;
+    border-radius: 0.25rem;
+    border: none;
+    width: 100%;
+    color: $color-gunmetal-gray;
+    margin-top: 1rem;
   }
   &__end {
   }

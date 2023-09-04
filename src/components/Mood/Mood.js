@@ -89,28 +89,54 @@ function Mood() {
 
   return (
     <div className="mood">
-      <p>Current User {loggedUser}</p>
+      {/* <p>Current User {loggedUser}</p> */}
 
       <h4 className="mood__title">How are you today?!</h4>
-      <div>
+      <div className="mood__container">
         <div className="mood__progress-container">
           <div className="progress-bar" style={{ width: `${mood}%` }}></div>
         </div>
 
         <div className="mood__buttons">
-          <button onClick={() => handleMoodChange(20)}>Awful</button>
-          <button onClick={() => handleMoodChange(40)}>Bad</button>
-          <button onClick={() => handleMoodChange(60)}>Fine</button>
-          <button onClick={() => handleMoodChange(80)}>Good</button>
-          <button onClick={() => handleMoodChange(100)}>Amazing</button>
+          <button
+            className="mood__button mood__button--level1"
+            onClick={() => handleMoodChange(20)}
+          >
+            Awful
+          </button>
+          <button
+            className="mood__button mood__button--level2"
+            onClick={() => handleMoodChange(40)}
+          >
+            Bad
+          </button>
+          <button
+            className="mood__button mood__button--level3"
+            onClick={() => handleMoodChange(60)}
+          >
+            Fine
+          </button>
+          <button
+            className="mood__button mood__button--level4"
+            onClick={() => handleMoodChange(80)}
+          >
+            Good
+          </button>
+          <button
+            className="mood__button mood__button--level5"
+            onClick={() => handleMoodChange(100)}
+          >
+            Amazing
+          </button>
         </div>
-
-        <button className="mood__save" onClick={moodClick}>
-          Save Mood
-        </button>
-        <h3 className="mood__exit" onClick={handleExit}>
-          X
-        </h3>
+        <div className="mood__states">
+          <button className="mood__save" onClick={moodClick}>
+            Save
+          </button>
+          <button className="mood__exit" onClick={handleExit}>
+            Refresh
+          </button>
+        </div>
       </div>
     </div>
   );

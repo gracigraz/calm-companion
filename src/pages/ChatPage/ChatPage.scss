@@ -12,8 +12,7 @@
   }
   &__label {
     @include font-m-p2-body-medium;
-    color: $color-pewter;
-    color: $color-gunmetal-gray;
+    color: $color-darkgray;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -36,5 +35,6 @@
     border: none;
     width: 100%;
     color: $color-gunmetal-gray;
+    margin-top: 1rem;
   }
 }

@@ -20,5 +20,6 @@
   &__intro {
     color: $color-gunmetal-gray;
     @include font-m-p2-body-medium;
+    font-weight: 600;
   }
 }

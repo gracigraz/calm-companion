@@ -2,6 +2,7 @@ import Mood from "../../components/Mood/Mood";
 import Toolkit from "../../components/Toolkit/Toolkit";
 import AbcQuestionnaire from "../../components/AbcQuestionnaire/AbcQuestionnaire";
 import Nav from "../../components/Nav/Nav";
+import "./DashboardPage.scss";
 
 function DashboardPage() {
   return (
