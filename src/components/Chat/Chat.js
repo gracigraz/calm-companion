@@ -13,7 +13,7 @@ import "./Chat.scss";
 
 function Chat(props) {
   const [nickname, setNickname] = useState("");
-
+  const [emoji, setEmoji] = useState("🥷🏻"); // default emoji
   const { chatRoom } = props; //extracts the chatRoom prop from the props object.
 
   const [newMessage, setNewMessage] = useState(""); //manages the user's new chat messages.
@@ -66,12 +66,10 @@ function Chat(props) {
       user: auth.currentUser.uid,
       nickname: nickname, // Save the nickname for it to be anonymous
       chatRoom,
+      emoji: emoji,
     });
 
     setNewMessage(""); //once we add the message in the db we want to empty it out
-  };
-  const handleNickname = () => {
-    window.location.href = "/dashboard";
   };
   //   function that redirects the user to the home page when the "End Chat" button is clicked.
   const handleEndChat = () => {
@@ -82,59 +80,54 @@ function Chat(props) {
 
   return (
     <div className="chat">
-      <div className="chat__header">
-        <h4 className="chat__title">
-          Hello there, welcome to {chatRoom} chat room!
-        </h4>
-      </div>
+      <h4 className="chat__title">
+        Hello there, welcome to "{chatRoom}" chat room!
+      </h4>
       {/* users will be prompted to enter their nickname when they access the chat
       room. The nickname will be saved along with the messages they send. The nickname doesn't need to be
       stored or managed across sessions. */}
-      <label className="chat__label-nickname">
-        Online Display Name
+      <p className="chat__label">Your Online Display Name and Avatar Emoji:</p>
+      <div className="chat__inputs">
         <input
           type="text"
           className="chat__nickname"
-          placeholder="Enter your nickname"
+          placeholder="Enter your nickname..."
           value={nickname}
           onChange={(event) => setNickname(event.target.value)}
         />
-      </label>
-      <button className="chat__ok" onClick={handleNickname}>
-        Save
-      </button>
+        <input
+          type="text"
+          className="chat__emoji"
+          placeholder="Enter emoji (e.g., 🤔)..."
+          value={emoji}
+          onChange={(event) => setEmoji(event.target.value)}
+        />
+      </div>
+
       <div className="chat__messages">
-        {/* {messages.map((message) => (
-          <div className="chat__message" key={message.id}>
-            <span className="chat__user">{message.user}:</span>{" "}
-            {message.message}
-          </div>
-        ))} */}
-        {/* //alternative map with nickname try it out */}
         {messages.map((message) => (
           <div className="chat__message" key={message.id}>
-            <span className="chat__user">{message.nickname}:</span>
+            <span className="chat__user">{message.nickname} </span>
+            <span className="chat__emoji">{message.emoji}: </span>
             {message.message}
           </div>
         ))}
       </div>
-      <div className="chat__container">
+      <form className="chat__form" onSubmit={handleSubmit}>
         <button className="chat__end" onClick={handleEndChat}>
-          End Chat
+          End
         </button>
-        <form className="chat__form" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            className="chat__new-message"
-            placeholder="Enter a message"
-            value={newMessage}
-            onChange={(event) => setNewMessage(event.target.value)}
-          />
-          <button className="chat__send-button" type="submit">
-            Send
-          </button>
-        </form>
-      </div>
+        <input
+          type="text"
+          className="chat__new-message"
+          placeholder="Enter a message..."
+          value={newMessage}
+          onChange={(event) => setNewMessage(event.target.value)}
+        />
+        <button className="chat__send-button" type="submit">
+          Send
+        </button>
+      </form>
     </div>
   );
 }

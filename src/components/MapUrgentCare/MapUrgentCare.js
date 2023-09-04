@@ -7,7 +7,6 @@ import "mapbox-gl/dist/mapbox-gl.css";
 
 function MapUrgentCare() {
   const [locations, setLocations] = useState([]);
-  // const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_DEFAULT_ACCESS_TOKEN;
   const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 
   // mapboxgl.accessToken = ACCESS_TOKEN;
@@ -25,7 +24,6 @@ function MapUrgentCare() {
           ACCESS_TOKEN
       )
       .then((response) => {
-        // const fetchedLocations = response.data.features;
         const fetchedLocations = response.data.suggestions;
         console.log(response);
         setLocations(fetchedLocations);

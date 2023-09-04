@@ -2,13 +2,22 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-.marker-override {
-  /* Disable transformations */
-  transform: none !important;
-  /* Reset translate transformations */
-  translate: none !important;
-  /* Reset opacity to default */
-  opacity: 1 !important;
-  /* Disable pointer events */
-  pointer-events: none !important;
+.emergency {
+  &__title {
+  }
+  &__list {
+  }
+  &__item {
+  }
 }
+
+// .marker-override {
+//   /* Disable transformations */
+//   transform: none !important;
+//   /* Reset translate transformations */
+//   translate: none !important;
+//   /* Reset opacity to default */
+//   opacity: 1 !important;
+//   /* Disable pointer events */
+//   pointer-events: none !important;
+// }

@@ -6,7 +6,7 @@
   font-family: "Quicksand", sans-serif;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
+  padding: 1.5rem;
 
   &__exit {
     margin-block-start: 0;
@@ -18,15 +18,15 @@
     color: gray;
   }
   &__title {
-    color: pink;
-    text-align: center;
-    font-weight: 500;
+    color: $color-darkgray;
+    text-align: left;
     margin-block-start: 0;
     margin-block-end: 0;
+    margin-bottom: 1rem;
+    @include font-m-h3-labels-links-buttons;
   }
   &__name-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-evenly;
     gap: 1rem;
   }
@@ -42,12 +42,14 @@
     }
   }
   &__button {
-    color: $color-sinbad;
+    font-family: "Quicksand", sans-serif;
+    @include font-m-p2-body-medium;
     color: $color-gunmetal-gray;
-    padding: 16px 24px;
+    padding: 8px 16px;
     border-radius: 4px;
-    border: 1px solid $color-pewter;
+    border: 1px solid $color-sinbad;
     background-color: $color-sinbad;
+
     // background-color: $color-wheatfield;
   }
 }

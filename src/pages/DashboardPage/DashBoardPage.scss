@@ -6,6 +6,7 @@
   padding: 1.5rem;
   height: 100%;
   &__title {
+    font-family: "Quicksand", sans-serif;
     margin-block-start: 0;
     margin-block-end: 0;
     color: $color-sinbad;
@@ -13,12 +14,14 @@
     @include font-m-h1-page-header;
   }
   &__container {
+    font-family: "Quicksand", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   &__intro {
-    color: $color-gunmetal-gray;
+    font-family: "Quicksand", sans-serif;
+    color: $color-darkgray;
     @include font-m-p2-body-medium;
     font-weight: 600;
   }

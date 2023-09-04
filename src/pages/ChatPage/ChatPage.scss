@@ -5,6 +5,11 @@
 .chat-page {
   padding: 1.5rem;
 
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
   &__room {
     display: flex;
     flex-direction: column;

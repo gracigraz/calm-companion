@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import * as React from "react";
 import Map, { Marker } from "react-map-gl";
 import axios from "axios";
-import pin from "../../assets/icons/pin.png";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 function MapER() {
   const [locations, setLocations] = useState([]);
-  // const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_DEFAULT_ACCESS_TOKEN;
   const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+
   useEffect(() => {
     axios
       .get(
@@ -28,12 +27,12 @@ function MapER() {
 
   return (
     <>
-      <div className="mapbox-locations">
-        <h4 className="map__title">
+      <div className="emergency">
+        <h4 className="emergency__title">
           We got you - search for Emergency Rooms NOW!
         </h4>
         <Map
-          className="Emergency__map"
+          className="emergency__map"
           mapboxAccessToken={ACCESS_TOKEN}
           initialViewState={{
             longitude: -81,
@@ -54,11 +53,13 @@ function MapER() {
             />
           ))}
         </Map>
-        <div className="locations-list">
+        <div className="emergency__list">
           {locations.map((location, index) => (
-            <div key={index} className="location-item">
-              <h4> {location.properties.name}</h4>:
-              <p>{location.properties.full_address}</p>
+            <div key={index} className="emergency__item">
+              <h4 className="emergency__name"> {location.properties.name}</h4>:
+              <p className="emergency__address">
+                {location.properties.full_address}
+              </p>
             </div>
           ))}
         </div>
