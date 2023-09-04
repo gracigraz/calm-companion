@@ -2,8 +2,6 @@
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
 
-
-
 .welcome {
   padding: 64px 36px 36px 36px;
   display: flex;
@@ -63,6 +61,7 @@
   &__intro {
     font-family: "Quicksand", sans-serif;
     text-transform: uppercase;
+    // animation: showButtons 9s ease-in-out 1; added last min
   }
   &__buttons {
     opacity: 1;

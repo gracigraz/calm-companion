@@ -1,0 +1,25 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.question {
+  padding: 1.5rem;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__back {
+  }
+  &__exit {
+  }
+  &__content {
+    display: flex;
+    justify-content: column;
+  }
+  &__answer {
+  }
+  &__save {
+  }
+}

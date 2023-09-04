@@ -25,6 +25,10 @@
   }
   &__user {
   }
+  &__container {
+    display: flex;
+    flex-direction: row;
+  }
   &__form {
   }
   &__new-message {

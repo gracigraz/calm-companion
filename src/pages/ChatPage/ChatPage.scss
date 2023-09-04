@@ -4,11 +4,37 @@
 
 .chat-page {
   padding: 1.5rem;
-  height: 100%;
-  &__container {
-  }
+
   &__room {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   &__label {
+    @include font-m-p2-body-medium;
+    color: $color-pewter;
+    color: $color-gunmetal-gray;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  &__input {
+    margin: 0.25rem 0;
+    border-radius: 0.25rem;
+    border: 0.0625rem solid $color-pewter;
+    background-color: white;
+    @include font-m-p3-body-small;
+    padding: 0.5rem 1rem;
+    color: $color-gunmetal-gray;
+  }
+  &__button {
+    @include font-m-h3-labels-links-buttons;
+    background-color: $color-sinbad;
+    padding: 0.75rem 2rem;
+    border-radius: 0.25rem;
+    border: none;
+    width: 100%;
+    color: $color-gunmetal-gray;
   }
 }
