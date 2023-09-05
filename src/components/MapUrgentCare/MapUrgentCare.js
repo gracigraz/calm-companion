@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import mapboxgl from "mapbox-gl";
+import { Link } from "react-router-dom";
 import "./MapUrgentCare.scss";
 import Map, { Marker } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
@@ -8,15 +8,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 function MapUrgentCare() {
   const [locations, setLocations] = useState([]);
   const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+  const latitude = 25.793449;
+  const longitude = -80.139198;
 
-  // mapboxgl.accessToken = ACCESS_TOKEN;
-
-  // const map = new mapboxgl.Map({
-  //   container: "map",
-  //   style: "mapbox://styles/mapbox/dark-v11",
-  //   center: [25.793449, -80.139198], //miami beach locations
-  //   zoom: 9,
-  // });
   useEffect(() => {
     axios
       .get(
@@ -46,6 +40,13 @@ function MapUrgentCare() {
           </div>
         ))}
       </div>
+      <Link
+        to={`https://www.google.com/maps?q=${latitude},${longitude}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button className="urgent-care__button">Open in Google Maps App</button>
+      </Link>
     </div>
   );
 }
