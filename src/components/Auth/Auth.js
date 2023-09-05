@@ -54,6 +54,9 @@ function Auth(props) {
   };
   return (
     <div className="authentication">
+      <Link className="authentication__link" to="/">
+        <h3 className="authentication__exit">X</h3>
+      </Link>
       <button className="authentication__google" onClick={signInWithGoogle}>
         Sign In With Google
       </button>
