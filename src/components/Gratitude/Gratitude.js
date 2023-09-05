@@ -1,35 +1,47 @@
 import "./Gratitude.scss";
 import { db } from "../../firebase-config.js"; // Import both auth and firestore instances
 import { collection, addDoc } from "firebase/firestore";
-
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { useState } from "react";
 function Gratitude() {
-  // const [registerReason, setRegisterReason] = useState("");
-  // const usersCollectionRef = collection(db, "users"); //grabbing the users collection form the db and asigning it to usersCollectionRef, collection function we need to import from the firestore, now we can make queries to the users collection
-
-  //   const register = () => {
-
-  //       .then((userCredential) => {
-  //         const user = userCredential.user;
-  //         // Store additional user info in Firestore
-  //         addDoc(usersCollectionRef, {
-  //           reason: registerReason,
-  //           uid: user.uid,
-  //         });
-  //         console.log("User registered reason to live:", user);
-  //       })
-  //       .catch((error) => {
-  //         console.log(error.message);
-  //       });
-  //   };
+  const [registerReason, setRegisterReason] = useState("");
+  const usersCollectionRef = collection(db, "users"); //grabbing the users collection form the db and asigning it to usersCollectionRef, collection function we need to import from the firestore, now we can make queries to the users collection
+  const [user, setUser] = useState(null);
+  const register = () => {
+    if (!user) {
+      console.log("User is not authenticated."); // Handle the case where user is not authenticated
+      return;
+    }
+    const userCredential = user;
+    // Store additional user info in Firestore
+    addDoc(usersCollectionRef, {
+      reason: registerReason,
+      uid: user.uid,
+    })
+      .then(() => {
+        console.log("User registered reason to live:", user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <>
       <div className="gratitude">
+        <Link to="/dashboard">
+          <FontAwesomeIcon
+            className="fa-1x gratitude__back"
+            icon={icon({ name: "chevron-left", style: "solid" })}
+          />
+        </Link>
         <form className="gratitude__form">
           <label htmlFor="gratitude__label" className="gratitude__label">
             "Hey, what are some things that are absolutely worth living for?
             What lights up your world?"
           </label>
-          {/* <input
+          <input
             className="gratitude__input"
             type="text"
             id="gratitude__label"
@@ -39,9 +51,12 @@ function Gratitude() {
               setRegisterReason(event.target.value);
             }}
           />
-          <button className="gratitude__button" onClick={register}>
-            + Add
-          </button> */}
+
+          <FontAwesomeIcon
+            className="fa-1x gratitude__button"
+            icon={icon({ name: "plus", style: "solid" })}
+            onClick={register}
+          />
         </form>
         <div className="gratitude__thoughts">
           <div className="gratitude__thought">

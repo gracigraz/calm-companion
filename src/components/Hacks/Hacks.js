@@ -8,8 +8,9 @@ import {
   doc,
   deleteDoc,
 } from "firebase/firestore";
-{
-}
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Hacks() {
   const [strategyList, setStrategyList] = useState([]);
@@ -24,10 +25,10 @@ function Hacks() {
   //add new coping-strategy if they cannot find what they want
   const [newStrategyName, setNewStrategyName] = useState("");
 
-  const deleteStrategy = async (id) => {
-    const strategyDoc = doc(db, "coping-strategy", id);
-    await deleteDoc(strategyDoc);
-  };
+  // const deleteStrategy = async (id) => {
+  //   const strategyDoc = doc(db, "coping-strategy", id);
+  //   await deleteDoc(strategyDoc);
+  // };
 
   const getStrategyList = async () => {
     //Read the data
@@ -74,6 +75,7 @@ function Hacks() {
         name: newStrategyName,
       });
       getStrategyList();
+      document.querySelector(".hacks__input").value = ""; // clear input field after hittinh + icon
     } catch (error) {
       console.log(error);
     }
@@ -81,32 +83,44 @@ function Hacks() {
   return (
     <>
       <div className="hacks">
-        <div className="hacks__back"></div>
+        <Link to="/dashboard">
+          <FontAwesomeIcon
+            className="fa-1x hacks__back"
+            icon={icon({ name: "chevron-left", style: "solid" })}
+          />
+        </Link>
+
         <h4 className="hacks__title">
           Activities you love that help take your mind off worries!
         </h4>
+
         <div className="hacks__container">
           {strategyList.map((strategy) => (
             <button key={doc.id} className="hacks__button">
               {strategy.name}
             </button>
           ))}
-          <label className="hacks__label">
-            Can't find a coping strategy that matches your feelings? Create your
-            own!
-            <input
-              className="hacks__input"
-              // placeholder="Can't find a coping strategy that matches your feelings? Create your own!"
-              onChange={(event) => setNewStrategyName(event.target.value)}
-            />
-          </label>
+        </div>
 
-          <button className="hacks__save" onClick={onSubmitStrategy}>
-            +
-          </button>
-          <button className="hacks__delete">
-            {/* onClick={() => deleteStrategy(id)} */}-
-          </button>
+        <label className="hacks__label">
+          Can't find a coping strategy that matches your feelings? Create your
+          own!
+          <input
+            className="hacks__input"
+            onChange={(event) => setNewStrategyName(event.target.value)}
+          />
+        </label>
+        <div className="hacks__buttons">
+          <FontAwesomeIcon
+            className="fa-1x hacks__save"
+            icon={icon({ name: "plus", style: "solid" })}
+            onClick={onSubmitStrategy}
+          />
+          <FontAwesomeIcon
+            className="fa-1x hacks__delete"
+            icon={icon({ name: "trash", style: "solid" })}
+            // onClick={() => deleteStrategy(id)}
+          />
         </div>
       </div>
     </>

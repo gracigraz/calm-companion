@@ -3,9 +3,15 @@
 @use "../../styles/partials/mixins" as *;
 
 .gratitude {
-  background-color: lightgray;
+  background-color: $color-sinbad;
   padding: 1rem;
 
+  &__back {
+    color: $color-gunmetal-gray;
+    width: auto;
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
   &__form {
     display: flex;
     flex-direction: column;
@@ -14,22 +20,25 @@
     font-family: "Quicksand", sans-serif;
     margin-bottom: 0.75rem;
     font-weight: 500;
+    color: $color-darkgray;
+    @include font-m-h3-labels-links-buttons;
   }
   &__input {
-    height: 10vh;
+    padding: 0.5rem;
     border-radius: 10px;
     font-family: "Quicksand", sans-serif;
-    border: 0.0625rem solid lightgray;
+    border: 0.0625rem solid $color-pewter;
+    @include font-m-p2-body-medium;
+    color: $color-darkgray;
   }
 
   &__button {
-    border-radius: 20px;
-    border: 0.0625rem solid lightcoral;
-    background-color: lightcoral;
-    margin: 0.75rem 0;
-    font-family: "Quicksand", sans-serif;
-    padding: 0.25rem;
-    font-weight: 500;
+    background-color: $color-sinbad;
+    border: 1px solid $color-sinbad;
+    border-radius: 4px;
+    color: $color-darkgray;
+    padding: 0.75rem;
+    @include font-m-h3-labels-links-buttons;
   }
   &__thoughts {
     font-family: "Quicksand", sans-serif;
@@ -40,11 +49,12 @@
     align-items: center;
     align-content: flex-start;
     padding: 0rem;
+    @include font-m-p2-body-medium;
   }
   &__thought {
     display: flex;
     background-color: #fff;
-    padding: 10px;
+    padding: 10px 14px 10px 10px;
     border-radius: 30px;
     min-width: 40px;
     max-width: 220px;

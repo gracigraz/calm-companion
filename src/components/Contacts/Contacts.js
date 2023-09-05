@@ -10,6 +10,9 @@ import {
   where,
   updateDoc,
 } from "firebase/firestore";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Contacts() {
   const [contactName, setContactName] = useState("");
@@ -84,6 +87,12 @@ function Contacts() {
   }
   return (
     <div className="contacts">
+      <Link to="/dashboard">
+        <FontAwesomeIcon
+          className="fa-1x contacts__back"
+          icon={icon({ name: "chevron-left", style: "solid" })}
+        />
+      </Link>
       <h4 className="contacts__title">
         Just jot down the names and phone numbers of people like friends,
         family, professionals, or anyone else you could get in touch with in
@@ -97,19 +106,27 @@ function Contacts() {
           </div>
         ))}
       </div>
-      <input
-        name="name"
-        placeholder="Name"
-        value={contactName}
-        onChange={(e) => setContactName(e.target.value)}
-      />
-      <input
-        name="phoneNumber"
-        placeholder="Phone Number"
-        value={contactPhoneNumber}
-        onChange={(e) => setContactPhoneNumber(e.target.value)}
-      />
-      <button onClick={handleAddContact}>+ Add Help</button>
+      <div className="contacts__newcontact-container">
+        <div className="contacts__newcontact">
+          <input
+            className="contacts__name"
+            name="name"
+            placeholder="Name"
+            value={contactName}
+            onChange={(e) => setContactName(e.target.value)}
+          />
+          <input
+            className="contacts__phone"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            value={contactPhoneNumber}
+            onChange={(e) => setContactPhoneNumber(e.target.value)}
+          />
+        </div>
+        <button className="contacts__button" onClick={handleAddContact}>
+          + Add Help
+        </button>
+      </div>
     </div>
   );
 }

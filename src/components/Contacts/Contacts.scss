@@ -1,3 +1,50 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 @use "../../styles/partials/mixins" as *;
+
+.contacts {
+  padding: 1.5rem;
+  &__back {
+    text-align: left;
+    width: auto;
+    color: $color-gunmetal-gray;
+  }
+  &__title {
+    @include font-m-h3-labels-links-buttons;
+    color: $color-darkgray;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__contact {
+    background-color: $color-pewter;
+  }
+  &__avatar {
+  }
+  &__nickname {
+  }
+  &__newcontact-container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__newcontact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__name {
+    width: 45%;
+  }
+  &__phone {
+    width: 45%;
+  }
+  &__button {
+    margin-top: 1rem;
+    background-color: $color-sinbad;
+    border: 1px solid $color-sinbad;
+    border-radius: 4px;
+    color: $color-darkgray;
+    @include font-m-h3-labels-links-buttons;
+  }
+}

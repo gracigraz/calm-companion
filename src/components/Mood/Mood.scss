@@ -71,4 +71,9 @@
     color: $color-darkgray;
     @include font-m-h3-labels-links-buttons;
   }
+
+  &__refresh {
+    color: $color-gunmetal-gray;
+    width: auto;
+  }
 }
