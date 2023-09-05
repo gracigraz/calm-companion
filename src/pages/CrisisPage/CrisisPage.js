@@ -62,6 +62,10 @@ function CrisisPage() {
             >
               Find Emergency Room Near You
             </button>
+            {/* <FontAwesomeIcon icon={solid("user-nurse")} /> */}
+            {/* <FontAwesomeIcon icon={solid("house-medical")} /> */}
+            {/* <FontAwesomeIcon icon={solid("user-doctor")} /> */}
+            {/* <FontAwesomeIcon icon="fa-solid fa-hand-holding-medical" /> */}
           </div>
         </div>
       </main>

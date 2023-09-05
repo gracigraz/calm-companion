@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import home from "../../assets/icons/house-solid.svg"; //change for real name check website
 import "./Nav.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Nav() {
   return (
@@ -11,17 +11,21 @@ function Nav() {
       <ul className="menu__container">
         <li>
           <Link to="/" className="menu__link">
-            <FontAwesomeIcon icon={home} style={{ color: "#595e60" }} />
+            <FontAwesomeIcon icon={icon({ name: "house", style: "solid" })} />
           </Link>
         </li>
         <li>
           <Link to="/crisis" className="menu__link">
-            <FontAwesomeIcon icon={home} style={{ color: "#595e60" }} />
+            <FontAwesomeIcon
+              icon={icon({ name: "circle-exclamation", style: "solid" })}
+            />
           </Link>
         </li>
         <li>
           <Link to="/chat" className="menu__link">
-            <FontAwesomeIcon icon={home} style={{ color: "#595e60" }} />
+            <FontAwesomeIcon
+              icon={icon({ name: "comments", style: "solid" })}
+            />
           </Link>
         </li>
       </ul>

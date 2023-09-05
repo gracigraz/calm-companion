@@ -9,6 +9,8 @@ import {
   serverTimestamp, //function from firebase that creates a timestamp
   updateDoc,
 } from "firebase/firestore";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Mood() {
   const [mood, setMood] = useState(0);
@@ -18,11 +20,11 @@ function Mood() {
   const usersCollectionRef = collection(db, "users");
   const conditionUser = userData === null ? true : false;
 
-  //   const currentUserCollectionRef = collection(db, "users", loggedUser);
   const handleMoodChange = (newMood) => {
-    setMood(newMood);
+    // Calculate the width as a percentage
+    const progressWidth = `${newMood}%`;
+    setMood(progressWidth);
   };
-
   const moodClick = async () => {
     const moodChange = mood;
     setUserData({
@@ -90,11 +92,10 @@ function Mood() {
   return (
     <div className="mood">
       {/* <p>Current User {loggedUser}</p> */}
-
       <h4 className="mood__title">How are you today?!</h4>
       <div className="mood__container">
         <div className="mood__progress-container">
-          <div className="progress-bar" style={{ width: `${mood}%` }}></div>
+          <div className="mood__progress-bar" style={{ width: mood }}></div>
         </div>
 
         <div className="mood__buttons">
@@ -133,9 +134,11 @@ function Mood() {
           <button className="mood__save" onClick={moodClick}>
             Save
           </button>
-          <button className="mood__exit" onClick={handleExit}>
-            Refresh
-          </button>
+          <FontAwesomeIcon
+            className="mood__refresh"
+            onClick={handleExit}
+            icon={icon({ name: "rotate-right", style: "solid" })}
+          />
         </div>
       </div>
     </div>

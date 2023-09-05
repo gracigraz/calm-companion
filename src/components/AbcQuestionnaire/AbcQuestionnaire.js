@@ -2,6 +2,7 @@ import "./AbcQuestionnaire.scss";
 import React, { useEffect, useState } from "react";
 import { doc, collection } from "firebase/firestore";
 import { db, auth } from "../../firebase-config";
+import Question from "../Question/Question";
 
 function AbcQuestionnaire() {
   const [questions, setQuestions] = useState([]);
