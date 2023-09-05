@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Nav from "../../components/Nav/Nav";
 import "./CrisisPage.scss";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function CrisisPage() {
   const [isButtonClicked988, setIsButtonClicked988] = useState(false);
@@ -38,12 +41,20 @@ function CrisisPage() {
               className={`crisis__911 ${isButtonClicked911 ? "clicked" : ""}`}
               onClick={handleCallEmergency}
             >
+              <FontAwesomeIcon
+                className="fa-2x"
+                icon={icon({ name: "user-doctor", style: "solid" })}
+              />
               Call 911
             </button>
             <button
               className={`crisis__988 ${isButtonClicked988 ? "clicked" : ""}`}
               onClick={handleCallHelpLine}
             >
+              <FontAwesomeIcon
+                className="fa-2x"
+                icon={icon({ name: "user-nurse", style: "solid" })}
+              />
               Call 988
             </button>
           </div>
@@ -54,17 +65,22 @@ function CrisisPage() {
               }`}
               onClick={handleFindUrgentCare}
             >
+              <FontAwesomeIcon
+                className="fa-2x"
+                icon={icon({ name: "house-medical", style: "solid" })}
+              />
               Find Urgent Care Near You
             </button>
             <button
               className={`crisis__ER ${isButtonClickedER ? "clicked" : ""}`}
               onClick={handleFindER}
             >
+              <FontAwesomeIcon
+                className="fa-2x"
+                icon={icon({ name: "location-dot", style: "solid" })}
+              />
               Find Emergency Room Near You
             </button>
-            {/* <FontAwesomeIcon icon={solid("user-nurse")} /> */}
-            {/* <FontAwesomeIcon icon={solid("house-medical")} /> */}
-            {/* <FontAwesomeIcon icon={solid("user-doctor")} /> */}
             {/* <FontAwesomeIcon icon="fa-solid fa-hand-holding-medical" /> */}
           </div>
         </div>

@@ -1,13 +1,9 @@
 import "./Toolkit.scss";
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Toolkit() {
-  const backgroundStyle = {
-    backgroundImage: `url("../../assets/icons/user-plus-solid.svg")`, // Replace with your image path
-  };
   const handleHacks = () => {
     window.location.href = "/hacks";
   };
@@ -24,11 +20,7 @@ function Toolkit() {
   return (
     <>
       <div className="toolkit">
-        <div
-          className="toolkit__banner"
-          style={backgroundStyle}
-          onClick={handleHacks}
-        >
+        <div className="toolkit__banner" onClick={handleHacks}>
           <FontAwesomeIcon icon={icon({ name: "icons", style: "solid" })} />
 
           <h4 className="toolkit__title toolkit__title--hacks">
