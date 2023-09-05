@@ -19,7 +19,7 @@ function Welcome() {
             </button>
           </Link>
           <Link to="/login">
-            <button className="welcome__button">Log in with account</button>
+            <button className="welcome__button">Log in with Account</button>
           </Link>
         </div>
       </main>
