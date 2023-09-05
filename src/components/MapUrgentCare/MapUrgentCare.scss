@@ -5,12 +5,13 @@
 .urgent-care {
   padding: 1.5rem;
   background-color: white;
-
   font-family: "Quicksand", sans-serif;
+  svg {
+    color: $color-sinbad;
+  }
   &__title {
     padding: 1rem;
     color: $color-darkgray;
-
     margin-block-start: 0;
     margin-block-end: 0;
     text-align: center;

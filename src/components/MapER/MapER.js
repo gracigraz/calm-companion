@@ -3,6 +3,11 @@ import * as React from "react";
 import Map, { Marker } from "react-map-gl";
 import axios from "axios";
 import "mapbox-gl/dist/mapbox-gl.css";
+import "./MapER.scss";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { Link } from "react-router-dom";
 
 function MapER() {
   const [locations, setLocations] = useState([]);
@@ -13,7 +18,7 @@ function MapER() {
       .get(
         "https://api.mapbox.com/search/searchbox/v1/category/emergency_room?access_token=" +
           ACCESS_TOKEN +
-          "&language=en&limit=7&proximity=-80.188109%2C25.807706"
+          "&language=en&limit=7&proximity=-80.2034%2C25.8017"
       )
       .then((response) => {
         const fetchedLocations = response.data.features;
@@ -28,6 +33,12 @@ function MapER() {
   return (
     <>
       <div className="emergency">
+        <Link to="/crisis">
+          <FontAwesomeIcon
+            className="fa-2x"
+            icon={icon({ name: "chevron-left", style: "solid" })}
+          />
+        </Link>
         <h4 className="emergency__title">
           We got you - search for Emergency Rooms NOW!
         </h4>
@@ -35,8 +46,8 @@ function MapER() {
           className="emergency__map"
           mapboxAccessToken={ACCESS_TOKEN}
           initialViewState={{
-            longitude: -81,
-            latitude: 25,
+            longitude: -80.2034,
+            latitude: 25.8017,
             zoom: 9,
           }}
           style={{ position: "absolute", width: "100%", height: "50%" }}
@@ -56,7 +67,7 @@ function MapER() {
         <div className="emergency__list">
           {locations.map((location, index) => (
             <div key={index} className="emergency__item">
-              <h4 className="emergency__name"> {location.properties.name}</h4>:
+              <h4 className="emergency__name"> {location.properties.name}</h4>
               <p className="emergency__address">
                 {location.properties.full_address}
               </p>
