@@ -5,12 +5,14 @@
 .contacts {
   padding: 1.5rem;
   color: $color-darkgray;
+  font-family: "Quicksand", sans-serif;
   &__back {
     text-align: left;
     width: auto;
     color: $color-gunmetal-gray;
   }
   &__title {
+    font-family: "Quicksand", sans-serif;
     @include font-m-h3-labels-links-buttons;
     color: $color-darkgray;
   }
@@ -49,17 +51,21 @@
     flex-direction: row;
     justify-content: space-between;
   }
-  &__name {
-    width: 45%;
-  }
+  &__name,
   &__phone {
     width: 45%;
+    background-color: white;
+    border: 1px solid $color-pewter;
+    border-radius: 4px;
+    padding: 0.25rem;
+    @include font-m-p2-body-medium;
   }
+
   &__button {
     margin-top: 1rem;
     background-color: $color-sinbad;
     border: 1px solid $color-sinbad;
-    border-radius: 4px;
+    border-radius: 20px;
     color: $color-darkgray;
     @include font-m-h3-labels-links-buttons;
   }

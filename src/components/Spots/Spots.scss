@@ -26,8 +26,9 @@
     border: solid 1px $color-pewter;
     color: $color-pewter;
     padding: 0.5rem;
-    // active state + placeholder info too
-    // border: solid 1px $color-sinbad;
+    &:active {
+      border: solid 1px $color-sinbad;
+    }
   }
   &__add {
     margin-top: 0.5rem;
@@ -36,8 +37,9 @@
     border-radius: 20px;
     border: solid 1px $color-sinbad;
     color: $color-darkgray;
-    //when selected
-    // background-color: $color-wheatfield;
+    &:active {
+      background-color: $color-wheatfield;
+    }
   }
   &__delete {
     margin-top: 0.5rem;
