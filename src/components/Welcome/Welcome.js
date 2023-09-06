@@ -15,11 +15,11 @@ function Welcome() {
         <div className="welcome__buttons">
           <Link to="/signup">
             <button className="welcome__button welcome__button--left">
-              Sign Up
+              Join Now
             </button>
           </Link>
           <Link to="/login">
-            <button className="welcome__button">Log in with Account</button>
+            <button className="welcome__button">Log In</button>
           </Link>
         </div>
       </main>

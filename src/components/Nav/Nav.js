@@ -10,7 +10,7 @@ function Nav() {
     <nav className="menu">
       <ul className="menu__container">
         <li>
-          <Link to="/" className="menu__link">
+          <Link to="/dashboard" className="menu__link">
             <FontAwesomeIcon icon={icon({ name: "house", style: "solid" })} />
           </Link>
         </li>

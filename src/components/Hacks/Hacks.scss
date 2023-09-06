@@ -33,6 +33,10 @@
     padding: 16px 24px;
     margin: 6px;
     @include font-m-p2-body-medium;
+    &--selected {
+      background-color: $color-wheatfield;
+      border-color: $color-wheatfield;
+    }
   }
   &__label {
     display: flex;
@@ -55,11 +59,15 @@
     gap: 0.5rem;
   }
   &__save,
-  &__delete {
+  &__add {
     padding: 12px;
     border-radius: 12px;
     border: 0.0625rem solid $color-pewter;
     background-color: $color-pewter;
+    color: $color-gunmetal-gray;
+    width: auto;
+  }
+  &__delete {
     color: $color-gunmetal-gray;
     width: auto;
   }

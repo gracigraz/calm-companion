@@ -3,6 +3,7 @@
 @use "../../styles/partials/mixins" as *;
 
 .not-found {
+  height: 100vh;
   padding: 3rem;
   display: flex;
   flex-direction: column;
