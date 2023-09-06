@@ -129,12 +129,11 @@ function Contacts() {
             >
               {contact.contactPhoneNumber}
             </p>
-            <button
-              className="contacts__delete-button"
+            <FontAwesomeIcon
+              className="contacts__delete"
+              icon={icon({ name: "trash", style: "solid" })}
               onClick={() => handleDeleteContact(contact.id)}
-            >
-              <FontAwesomeIcon icon={icon({ name: "trash", style: "solid" })} />
-            </button>
+            />
           </div>
         ))}
       </div>

@@ -36,10 +36,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
   &__newcontact-name,
   &__newcontact-phone {
     @include font-m-p2-body-medium;
+    flex-shrink: 0;
+    margin-block-start: 0.75rem;
+    margin-block-end: 0.75rem;
   }
   &__newcontact-container {
     margin-top: 1rem;
@@ -68,5 +72,9 @@
     border-radius: 20px;
     color: $color-darkgray;
     @include font-m-h3-labels-links-buttons;
+  }
+  &__delete {
+    color: $color-sinbad;
+    width: auto;
   }
 }
