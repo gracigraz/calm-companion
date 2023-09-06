@@ -12,6 +12,7 @@
     color: $color-sinbad;
     text-align: left;
     @include font-m-h1-page-header;
+    margin: 0.5rem 0;
   }
   &__container {
     font-family: "Quicksand", sans-serif;

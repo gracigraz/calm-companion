@@ -12,13 +12,16 @@
     color: $color-gunmetal-gray;
   }
   &__title {
+    margin: 0.5rem 1rem 1rem 1rem;
     font-family: "Quicksand", sans-serif;
-    @include font-m-h3-labels-links-buttons;
     color: $color-darkgray;
+    @include font-m-p2-body-medium;
+    font-weight: 600;
   }
   &__container {
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
   }
   &__contact {
     background-color: white;
@@ -57,12 +60,13 @@
   }
   &__name,
   &__phone {
-    width: 45%;
+    width: 42.5%;
     background-color: white;
     border: 1px solid $color-pewter;
-    border-radius: 4px;
-    padding: 0.25rem;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
     @include font-m-p2-body-medium;
+    font-size: 0.75rem;
   }
 
   &__button {
@@ -72,6 +76,7 @@
     border-radius: 20px;
     color: $color-darkgray;
     @include font-m-h3-labels-links-buttons;
+    padding: 0.25rem;
   }
   &__delete {
     color: $color-sinbad;

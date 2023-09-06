@@ -34,55 +34,50 @@ function CrisisPage() {
   return (
     <>
       <main className="crisis">
-        <h2 className="crisis__title">Help is available!</h2>
+        <h1 className="crisis__title">Help is available!</h1>
         <div className="crisis__container">
-          <div className="crisis__buttons">
-            <button
-              className={`crisis__911 ${isButtonClicked911 ? "clicked" : ""}`}
-              onClick={handleCallEmergency}
-            >
-              <FontAwesomeIcon
-                className="fa-2x"
-                icon={icon({ name: "user-doctor", style: "solid" })}
-              />
-              Call 911
-            </button>
-            <button
-              className={`crisis__988 ${isButtonClicked988 ? "clicked" : ""}`}
-              onClick={handleCallHelpLine}
-            >
-              <FontAwesomeIcon
-                className="fa-2x"
-                icon={icon({ name: "user-nurse", style: "solid" })}
-              />
-              Call 988
-            </button>
-          </div>
-          <div className="crisis__buttons">
-            <button
-              className={`crisis__urgent-care ${
-                isButtonClickedUC ? "clicked" : ""
-              }`}
-              onClick={handleFindUrgentCare}
-            >
-              <FontAwesomeIcon
-                className="fa-2x"
-                icon={icon({ name: "house-medical", style: "solid" })}
-              />
-              Find Urgent Care Near You
-            </button>
-            <button
-              className={`crisis__ER ${isButtonClickedER ? "clicked" : ""}`}
-              onClick={handleFindER}
-            >
-              <FontAwesomeIcon
-                className="fa-2x"
-                icon={icon({ name: "location-dot", style: "solid" })}
-              />
-              Find Emergency Room Near You
-            </button>
-            {/* <FontAwesomeIcon icon="fa-solid fa-hand-holding-medical" /> */}
-          </div>
+          <button
+            className={`crisis__911 ${isButtonClicked911 ? "clicked" : ""}`}
+            onClick={handleCallEmergency}
+          >
+            <FontAwesomeIcon
+              className="fa-2x crisis__icon"
+              icon={icon({ name: "user-doctor", style: "solid" })}
+            />
+            Call 911
+          </button>
+          <button
+            className={`crisis__988 ${isButtonClicked988 ? "clicked" : ""}`}
+            onClick={handleCallHelpLine}
+          >
+            <FontAwesomeIcon
+              className="fa-2x crisis__icon"
+              icon={icon({ name: "user-nurse", style: "solid" })}
+            />
+            Call 988
+          </button>
+          <button
+            className={`crisis__urgent-care ${
+              isButtonClickedUC ? "clicked" : ""
+            }`}
+            onClick={handleFindUrgentCare}
+          >
+            <FontAwesomeIcon
+              className="fa-2x crisis__icon"
+              icon={icon({ name: "house-medical", style: "solid" })}
+            />
+            Find Urgent Care Near You
+          </button>
+          <button
+            className={`crisis__ER ${isButtonClickedER ? "clicked" : ""}`}
+            onClick={handleFindER}
+          >
+            <FontAwesomeIcon
+              className="fa-2x crisis__icon"
+              icon={icon({ name: "location-dot", style: "solid" })}
+            />
+            Find Emergency Room Near You
+          </button>
         </div>
       </main>
       <Nav />

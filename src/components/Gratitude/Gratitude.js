@@ -102,8 +102,8 @@ function Gratitude() {
         </Link>
         <form className="gratitude__form">
           <label htmlFor="gratitude__label" className="gratitude__label">
-            "Hey, what are some things that are absolutely worth living for?
-            What lights up your world?"
+            Hey, what are some things that are absolutely worth living for? What
+            lights up your world?
           </label>
           <input
             className="gratitude__input"

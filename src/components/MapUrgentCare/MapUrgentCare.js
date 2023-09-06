@@ -33,7 +33,7 @@ function MapUrgentCare() {
     <div className="urgent-care">
       <Link to="/crisis">
         <FontAwesomeIcon
-          className="fa-2x"
+          className="fa-1x"
           icon={icon({ name: "chevron-left", style: "solid" })}
         />
       </Link>

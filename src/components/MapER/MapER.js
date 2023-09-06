@@ -35,7 +35,7 @@ function MapER() {
       <div className="emergency">
         <Link to="/crisis">
           <FontAwesomeIcon
-            className="fa-2x"
+            className="fa-1x"
             icon={icon({ name: "chevron-left", style: "solid" })}
           />
         </Link>
@@ -50,7 +50,7 @@ function MapER() {
             latitude: 25.8017,
             zoom: 9,
           }}
-          style={{ position: "absolute", width: "100%", height: "50%" }}
+          style={{ position: "absolute", width: "87%", height: "50%" }}
           mapStyle="mapbox://styles/mapbox/dark-v11"
         >
           {locations.map((location, index) => (

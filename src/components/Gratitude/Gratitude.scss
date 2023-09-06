@@ -18,13 +18,14 @@
   }
   &__label {
     font-family: "Quicksand", sans-serif;
-    margin-bottom: 0.75rem;
-    font-weight: 500;
+    margin: 0 1rem 0.75rem 1rem;
     color: $color-darkgray;
-    @include font-m-h3-labels-links-buttons;
+    @include font-m-p2-body-medium;
+    font-weight: 600;
   }
   &__input {
     padding: 0.5rem;
+    margin: 0 1rem 0.75rem 1rem;
     border-radius: 10px;
     font-family: "Quicksand", sans-serif;
     border: 0.0625rem solid $color-pewter;
@@ -33,15 +34,15 @@
   }
 
   &__button {
-    margin-top: 0.5rem;
-    background-color: $color-sinbad;
-    border: 1px solid $color-sinbad;
+    margin: 0rem 1rem 1rem 1rem;
+    background-color: $color-wheatfield;
+    border: 1px solid $color-wheatfield;
     border-radius: 20px;
     color: $color-darkgray;
     padding: 0.25rem;
     @include font-m-h3-labels-links-buttons;
     &:active {
-      background-color: $color-wheatfield;
+      background-color: $color-pewter;
     }
   }
   &__thoughts,
@@ -82,8 +83,6 @@
     }
 
     &::before {
-      //   width: 40px;
-      //   height: 44px;
       width: 30px;
       height: 28px;
       top: -13px;

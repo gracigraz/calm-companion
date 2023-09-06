@@ -15,7 +15,9 @@
     font-family: "Quicksand", sans-serif;
     margin-bottom: 1rem;
     color: $color-darkgray;
-    text-align: center;
+    text-align: left;
+    @include font-m-p2-body-medium;
+    font-weight: 600;
   }
   &__container {
     display: flex;

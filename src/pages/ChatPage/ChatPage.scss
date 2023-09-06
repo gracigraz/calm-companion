@@ -13,6 +13,7 @@
     color: $color-sinbad;
     text-align: left;
     @include font-m-h1-page-header;
+    margin: 0.5rem 0 1.5rem 0;
   }
 
   &__container {
@@ -49,7 +50,7 @@
     border-radius: 0.25rem;
     border: none;
     width: 100%;
-    color: $color-gunmetal-gray;
+    color: $color-darkgray;
     margin-top: 1rem;
   }
 }
