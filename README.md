@@ -97,8 +97,19 @@ To get a local copy up and running follow these simple example steps.
 ## Usage
 
 This section shows examples of how the project can be used. Additional screenshots, code examples and demos work well in this space and links to more resources.
-#Firebase Firestore database
+
+#Firebase Authentication
+![Screenshot of database users in firebase firestore](./READMEscreenshots/authentication.png?raw=true)
+
+#Firebase Firestore Database
 ![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-user.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-coping-strategies.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-copingStrategies.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-reasons.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-contacts.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-spots.png?raw=true)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-messages-collection-chat.png?raw=true)
 
 ## Features
 
