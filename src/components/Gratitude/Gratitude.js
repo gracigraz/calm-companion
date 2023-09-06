@@ -2,7 +2,6 @@ import "./Gratitude.scss";
 import { db } from "../../firebase-config.js";
 import {
   collection,
-  addDoc,
   getDoc,
   doc,
   updateDoc,
@@ -12,10 +11,9 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { useState, useEffect } from "react";
-import { auth } from "../../firebase-config"; // Import Firebase auth instance
+import { auth } from "../../firebase-config.js"; // Import Firebase auth instance
 
 function Gratitude() {
-  const [registerReason, setRegisterReason] = useState("");
   const [newReason, setNewReason] = useState("");
   const [user, setUser] = useState(null);
   const loggedUser = localStorage.getItem("user");
@@ -27,6 +25,7 @@ function Gratitude() {
   useEffect(() => {
     // Check if the user is authenticated and update the `user` state
     const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      console.log("Auth state changed:", authUser);
       setUser(authUser);
     });
 
@@ -36,6 +35,32 @@ function Gratitude() {
     };
   }, []);
 
+  const register = async () => {
+    if (!user) {
+      console.log("User is not authenticated.");
+      return;
+    }
+
+    // Fetch the existing reasons array from userData
+    const existingReasons = userData.reasons || [];
+
+    // Add the new reason to the array
+    const updatedReasons = [...existingReasons, newReason];
+
+    try {
+      console.log("Adding new reason...");
+      // Update the Firestore document with the updated reasons array
+      await updateDoc(doc(db, "users", loggedUser), {
+        reasons: arrayUnion(newReason), // Use arrayUnion to ensure uniqueness
+      });
+      console.log("New reason added:", newReason);
+
+      // Clear the input field after adding the reason
+      setNewReason("");
+    } catch (error) {
+      console.error("Error adding new reason: ", error.message);
+    }
+  };
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -55,32 +80,6 @@ function Gratitude() {
       getUser();
     }
   }, [conditionUser, loggedUser]);
-
-  const register = async () => {
-    if (!user) {
-      console.log("User is not authenticated.");
-      return;
-    }
-
-    // Fetch the existing reasons array from userData
-    const existingReasons = userData.reasons || [];
-
-    // Add the new reason to the array
-    const updatedReasons = [...existingReasons, newReason];
-
-    try {
-      // Update the Firestore document with the updated reasons array
-      await updateDoc(doc(db, "users", loggedUser), {
-        reasons: arrayUnion(newReason), // Use arrayUnion to ensure uniqueness
-      });
-      console.log("New reason added:", newReason);
-
-      // Clear the input field after adding the reason
-      setNewReason("");
-    } catch (error) {
-      console.error("Error adding new reason: ", error.message);
-    }
-  };
 
   if (conditionUser) {
     return <div>Loading...</div>;
@@ -111,7 +110,11 @@ function Gratitude() {
             }}
           />
 
-          <button className="gratitude__button" onClick={register}>
+          <button
+            className="gratitude__button"
+            onClick={register}
+            disabled={!user}
+          >
             + Add Reason
           </button>
         </form>
