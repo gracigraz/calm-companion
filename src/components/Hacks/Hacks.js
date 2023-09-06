@@ -218,15 +218,10 @@ function Hacks() {
             onChange={(event) => setNewStrategyName(event.target.value)}
             value={newStrategyName}
           />
-          {/* <FontAwesomeIcon
-            className="fa-1x hacks__add"
-            icon={icon({ name: "plus", style: "solid" })}
-            onClick={addNewStrategy}
-          /> */}
         </label>
         <div className="hacks__buttons">
           <button className="hacks__add" onClick={addNewStrategy}>
-            +Add New Hack
+            + Add New Hack
           </button>
           <button
             className="hacks__save"

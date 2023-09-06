@@ -40,7 +40,8 @@
     padding: 0.75rem;
     @include font-m-h3-labels-links-buttons;
   }
-  &__thoughts {
+  &__thoughts,
+  &__added-thoughts {
     font-family: "Quicksand", sans-serif;
     display: flex;
     flex-flow: row wrap;
@@ -51,7 +52,8 @@
     padding: 0rem;
     @include font-m-p2-body-medium;
   }
-  &__thought {
+  &__thought,
+  &__added-thought {
     display: flex;
     background-color: #fff;
     padding: 10px 14px 10px 10px;
