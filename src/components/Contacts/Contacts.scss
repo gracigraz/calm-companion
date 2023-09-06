@@ -4,6 +4,7 @@
 
 .contacts {
   padding: 1.5rem;
+  color: $color-darkgray;
   &__back {
     text-align: left;
     width: auto;
@@ -18,13 +19,28 @@
     flex-direction: column;
   }
   &__contact {
-    background-color: $color-pewter;
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
   }
   &__avatar {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: $color-pewter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  &__nickname {
+  &__newcontact-name,
+  &__newcontact-phone {
+    @include font-m-p2-body-medium;
   }
   &__newcontact-container {
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
   }

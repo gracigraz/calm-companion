@@ -4,11 +4,10 @@ import { db } from "../../firebase-config";
 import {
   collection,
   addDoc,
-  getDoc,
+  getDocs,
   doc,
   query,
-  where,
-  updateDoc,
+  deleteDoc,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,31 +21,14 @@ function Contacts() {
   const [userData, setUserData] = useState([]);
   const conditionUser = userData === null ? true : false;
 
-  const handleCall = () => {
-    window.location.href = "tel:" + contactPhoneNumber;
-  };
-  const handleAddContact = async () => {
-    try {
-      // Add the new contact to the user's database
-      await addDoc(collection(db, "contacts"), {
-        userId: loggedUser,
-        contactName,
-        contactPhoneNumber,
-      });
-      // Fetch the updated contacts and update the state
-      fetchContacts();
-      // Clear the input fields
-      setContactName("");
-      setContactPhoneNumber("");
-    } catch (error) {
-      console.error("Error adding contact:", error);
-    }
+  const handleCall = (phoneNumber) => {
+    window.location.href = "tel:" + phoneNumber;
   };
 
   const fetchContacts = async () => {
     try {
-      const contactsSnapshot = await getDoc(
-        query(collection(db, "contacts"), where("userId", "==", loggedUser))
+      const contactsSnapshot = await getDocs(
+        query(collection(db, "users", loggedUser, "contacts"))
       );
 
       const fetchedContacts = [];
@@ -60,14 +42,52 @@ function Contacts() {
     }
   };
 
+  const handleAddContact = async () => {
+    try {
+      // Add the new contact to the user's collection
+      const userContactsRef = collection(db, "users", loggedUser, "contacts");
+      await addDoc(userContactsRef, {
+        contactName,
+        contactPhoneNumber,
+      });
+
+      // Fetch the updated contacts and update the state
+      fetchContacts();
+
+      // Clear the input fields
+      setContactName("");
+      setContactPhoneNumber("");
+    } catch (error) {
+      console.error("Error adding contact:", error);
+    }
+  };
+
   useEffect(() => {
     fetchContacts();
   }, []);
 
+  const handleDeleteContact = async (contactId) => {
+    try {
+      const userContactsRef = doc(
+        db,
+        "users",
+        loggedUser,
+        "contacts",
+        contactId
+      );
+      await deleteDoc(userContactsRef);
+
+      // Fetch the updated contacts and update the state
+      fetchContacts();
+    } catch (error) {
+      console.error("Error deleting contact:", error);
+    }
+  };
+
   useEffect(() => {
     const getUser = async () => {
       try {
-        const snap = await getDoc(doc(db, "users", loggedUser));
+        const snap = await doc(db, "users", loggedUser);
         if (snap.exists()) {
           let data = snap.data();
           setUserData(data);
@@ -98,11 +118,23 @@ function Contacts() {
         family, professionals, or anyone else you could get in touch with in
         case of a crisis!
       </h4>
-      <div className="contacts__container" onClick={handleCall}>
+      <div className="contacts__container">
         {contacts.map((contact) => (
           <div key={contact.id} className="contacts__contact">
-            <div className="contacts__avatar"></div>
-            <p className="contacts__nickname">{contact.contactName}</p>
+            <div className="contacts__avatar">{contact.contactName[0]}</div>
+            <p className="contacts__newcontact-name">{contact.contactName}</p>:
+            <p
+              className="contacts__newcontact-phone"
+              onClick={() => handleCall(contact.contactPhoneNumber)}
+            >
+              {contact.contactPhoneNumber}
+            </p>
+            <button
+              className="contacts__delete-button"
+              onClick={() => handleDeleteContact(contact.id)}
+            >
+              <FontAwesomeIcon icon={icon({ name: "trash", style: "solid" })} />
+            </button>
           </div>
         ))}
       </div>
@@ -124,10 +156,11 @@ function Contacts() {
           />
         </div>
         <button className="contacts__button" onClick={handleAddContact}>
-          + Add Help
+          + Add Contact
         </button>
       </div>
     </div>
   );
 }
+
 export default Contacts;
