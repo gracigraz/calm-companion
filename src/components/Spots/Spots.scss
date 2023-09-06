@@ -41,12 +41,24 @@
       background-color: $color-wheatfield;
     }
   }
-  &__delete {
-    margin-top: 0.5rem;
-    @include font-m-h3-labels-links-buttons;
-    background-color: $color-wheatfield;
-    border-radius: 20px;
-    border: solid 1px $color-wheatfield;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  &__spot {
+    margin: 0.5rem;
+    @include font-m-p2-body-medium;
     color: $color-darkgray;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__delete {
+    margin: 0.5rem;
+    color: $color-sinbad;
   }
 }

@@ -121,7 +121,7 @@ function Spots() {
               <div key={spot.id} className="spots__spot">
                 {spot.spotName}
                 <FontAwesomeIcon
-                  className="fa-1x hacks__delete"
+                  className="fa-1x spots__delete"
                   icon={icon({ name: "trash", style: "solid" })}
                   onClick={() => handleDeleteSpot(spot.id)}
                 />
