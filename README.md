@@ -76,13 +76,20 @@ The purpose of the Calm Companion project is to create an app for anonymously sh
 Built With:
 This section lists the major frameworks/libraries used to build this project.
 
-- React, Firebase
+- React
+- Firebase: Firebase database (cloud firestore) and Firebase authentication.
+- Axios (axios): Axios is a popular library for making HTTP requests from a web application.
+- dotenv (dotenv): dotenv is a library for loading environment variables from a .env file into your application.
+- Mapbox GL (mapbox-gl): Mapbox GL is a JavaScript library for interactive, customizable maps.
+- Sass (sass): Sass is a CSS preprocessor that allows you to write CSS with additional features and then compile it into standard CSS.
+- Cookies (universal-cookie): This library simplifies working with cookies in web applications.
+- FontAwesome Icons (@fortawesome/fontawesome-svg-core, @fortawesome/free-regular-svg-icons, @fortawesome/free-solid-svg-icons, @fortawesome/react-fontawesome): These libraries provide access to FontAwesome icons, which are icon sets that you can use in your web applications.
 
 ## Getting Started:
 
 To get a local copy up and running follow these simple example steps.
 
-1. Clone the repo
+1. Clone the repo:
    git clone https://github.com/gracigraz/calm-companion.git
 2. Install NPM packages
    npm install
