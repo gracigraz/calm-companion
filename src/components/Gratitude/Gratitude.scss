@@ -24,9 +24,9 @@
     font-weight: 600;
   }
   &__input {
-    padding: 0.5rem;
+    padding: 0.25rem 0.5rem;
     margin: 0 1rem 0.75rem 1rem;
-    border-radius: 10px;
+    border-radius: 20px;
     font-family: "Quicksand", sans-serif;
     border: 0.0625rem solid $color-pewter;
     @include font-m-p2-body-medium;

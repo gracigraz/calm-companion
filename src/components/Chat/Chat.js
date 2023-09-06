@@ -50,16 +50,6 @@ function Chat(props) {
 
     if (newMessage === "") return; //check if message is empty, end the function so that we dont submit an empty message
 
-    // await addDoc(messagesRef, {
-    //   //adds a document (message) to the firestore collection "messages" collection with the message content, timestamp,
-    //   // user ID, user display name, and chat room.
-    //   message: newMessage,
-    //   createdAt: serverTimestamp(),
-    //   user: auth.currentUser.uid,
-    //   user: auth.currentUser.displayName, //which user typed the message
-    //   chatRoom, //which room are these messages being interchanged
-    // });
-
     await addDoc(messagesRef, {
       message: newMessage,
       createdAt: serverTimestamp(),

@@ -36,21 +36,21 @@
   }
   &__input {
     margin: 0.25rem 0;
-    border-radius: 0.25rem;
+    border-radius: 1.25rem;
     border: 0.0625rem solid $color-pewter;
     background-color: white;
-    @include font-m-p3-body-small;
+    @include font-m-p2-body-medium;
     padding: 0.5rem 1rem;
     color: $color-gunmetal-gray;
   }
   &__button {
     @include font-m-h3-labels-links-buttons;
     background-color: $color-sinbad;
-    padding: 0.75rem 2rem;
-    border-radius: 0.25rem;
+    padding: 0.5rem 0.5rem;
+    border-radius: 1.25rem;
     border: none;
     width: 100%;
     color: $color-darkgray;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 }
