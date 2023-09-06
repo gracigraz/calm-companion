@@ -13,7 +13,7 @@
 
   &__title {
     font-family: "Quicksand", sans-serif;
-    margin-bottom: 1rem;
+    margin: 0 1rem 1rem 1rem;
     color: $color-darkgray;
     text-align: left;
     @include font-m-p2-body-medium;
@@ -24,6 +24,9 @@
     flex-direction: row;
     flex-wrap: wrap;
     margin-bottom: 0.5rem;
+    gap: 0.625rem;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
   &__button {
@@ -32,29 +35,32 @@
     border-radius: 20px;
     border: 0.0625rem solid $color-sinbad;
     background-color: $color-sinbad;
-    padding: 16px 24px;
-    margin: 6px;
+    padding: 0.5rem 1.5rem;
+    margin-right: 6px;
     @include font-m-p2-body-medium;
     &--selected {
       background-color: $color-wheatfield;
       border-color: $color-wheatfield;
     }
   }
+
   &__label {
     display: flex;
     flex-direction: column;
     @include font-m-h3-labels-links-buttons;
     color: $color-darkgray;
+    margin: 1rem;
   }
 
   &__input {
-    border-radius: 4px;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
     border: 0.0625rem solid $color-pewter;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
     @include font-m-p2-body-medium;
   }
   &__buttons {
-    margin-top: 0.5rem;
+    margin: 1rem;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -62,12 +68,16 @@
   }
   &__save,
   &__add {
-    padding: 12px;
-    border-radius: 12px;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
     border: 0.0625rem solid $color-pewter;
     background-color: $color-pewter;
     color: $color-gunmetal-gray;
     width: auto;
+    @include font-m-h3-labels-links-buttons;
+    &:active {
+      background-color: $color-wheatfield;
+    }
   }
   &__delete {
     color: $color-gunmetal-gray;

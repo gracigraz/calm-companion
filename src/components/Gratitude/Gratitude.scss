@@ -35,14 +35,14 @@
 
   &__button {
     margin: 0rem 1rem 1rem 1rem;
-    background-color: $color-wheatfield;
-    border: 1px solid $color-wheatfield;
+    border: 0.0625rem solid $color-pewter;
+    background-color: $color-pewter;
+    color: $color-gunmetal-gray;
     border-radius: 20px;
-    color: $color-darkgray;
     padding: 0.25rem;
     @include font-m-h3-labels-links-buttons;
     &:active {
-      background-color: $color-pewter;
+      background-color: $color-wheatfield;
     }
   }
   &__thoughts,
