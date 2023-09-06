@@ -98,7 +98,7 @@ To get a local copy up and running follow these simple example steps.
 
 This section shows examples of how the project can be used. Additional screenshots, code examples and demos work well in this space and links to more resources.
 #Firebase Firestore database
-![Screenshot of databe users](./READMEscreenshoots/db-users.png)
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users.png?raw=true)
 
 ## Features
 
