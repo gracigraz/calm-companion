@@ -4,6 +4,16 @@
 
 .chat-page {
   padding: 1.5rem;
+  height: 100vh;
+
+  &__title {
+    font-family: "Quicksand", sans-serif;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: $color-sinbad;
+    text-align: left;
+    @include font-m-h1-page-header;
+  }
 
   &__container {
     display: flex;

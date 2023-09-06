@@ -18,6 +18,7 @@ function ChatPage() {
   return (
     <>
       <main className="chat-page">
+        <h1 className="chat-page__title">Welcome to Our Chat Oasis!</h1>
         {/* If isAuth === true, and the user is not currently in a chat room (isInChat === false), 
         render input field + button to allow the user to input chat room name and jump into a conversation. */}
         {isAuth ? (
