@@ -21,7 +21,7 @@
     "firebase": "^10.2.0",
     "fs": "^0.0.1-security",
     "mapbox-gl": "^2.15.0",
-    "node": "^20.5.1",
+    "node": "^20.6.0",
     "os-browserify": "^0.3.0",
     "path": "^0.12.7",
     "path-browserify": "^1.0.1",
