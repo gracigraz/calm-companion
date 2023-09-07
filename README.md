@@ -212,7 +212,7 @@ This section shows examples of how the project can be used.
 
 ![Screenshot of contacts collection in user in users collection database in firebase firestore](./READMEscreenshots/db-users-contacts.png?raw=true)
 
-![Screenshot of spots collection in user in users collection database in firebase firestore](./READMEscreenshots/db-users-spots.png?raw=true)
+![Screenshot of spots collection in user in users collection database in firebase firestore](./READMEscreenshots/db-users-spots.png)
 
 ![Screenshot of database messages collection in firebase firestore](./READMEscreenshots/db-messages-collection-chat.png?raw=true)
 
