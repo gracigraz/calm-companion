@@ -33,9 +33,10 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    font-weight: 600;
   }
   &__input {
-    margin: 0.25rem 0;
+    margin: 0.25rem;
     border-radius: 1.25rem;
     border: 0.0625rem solid $color-pewter;
     background-color: white;

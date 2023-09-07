@@ -4,7 +4,7 @@
 
 .welcome {
   height: 100vh;
-  padding: 36px;
+  padding: 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +12,6 @@
   font: 2vw "Quicksand";
   background-color: $color-sinbad;
   font-family: "Quicksand", sans-serif;
-  // system-ui
 
   &__container {
     transform: translatey(0px);
@@ -20,18 +19,18 @@
     text-align: center;
     font-weight: bold;
     letter-spacing: 1.5px;
-    font-size: 16px;
+    font-size: 1rem;
     color: $color-gunmetal-gray;
-    background-color: $color-wheatfield;
-    padding: 16px;
-    border-radius: 12px;
+    background-color: $color-surf-crest;
+    padding: 1rem;
+    border-radius: 1.75rem;
     position: relative;
-    box-shadow: 22px $color-sinbad;
+    box-shadow: 1.375rem $color-sinbad;
     font-family: "Quicksand", sans-serif;
 
     &:after {
       transform: translatey(0px);
-      animation: float2 3s ease-in-out 2;
+      animation: secondfloat 3s ease-in-out 2;
       content: ".";
       font-weight: bold;
       -webkit-text-fill-color: $color-wheatfield;
@@ -40,7 +39,6 @@
       height: 25px;
       line-height: 20px;
       border-radius: 20px;
-
       position: absolute;
       display: block;
       bottom: -18px;
@@ -53,11 +51,14 @@
   &__title {
     font-family: "Quicksand", sans-serif;
     text-transform: uppercase;
-    font-size: 24px;
+    font-size: 28px;
+    color: $color-wheatfield;
+    margin-bottom: 1.5rem;
   }
   &__intro {
     font-family: "Quicksand", sans-serif;
-    animation: showButtons 9s ease-in-out 1;
+    color: $color-gunmetal-gray;
+    animation: showButtons 8s ease-in-out 1;
   }
   &__buttons {
     opacity: 1;
@@ -67,12 +68,12 @@
     animation: showButtons 10s ease-in-out 1;
   }
   &__button {
-    font-weight: 500;
+    font-weight: 600;
     color: $color-gunmetal-gray;
     background-color: $color-surf-crest;
     border: none;
-    border-radius: 4px;
-    padding: 8px 10px;
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
 
     &--left {
       background-color: $color-wheatfield;
@@ -92,7 +93,7 @@
   }
 }
 
-@keyframes float2 {
+@keyframes secondfloat {
   0% {
     line-height: 30px;
     transform: translatey(0px);

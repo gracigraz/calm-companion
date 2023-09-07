@@ -14,15 +14,15 @@ import "./Chat.scss";
 function Chat(props) {
   const [nickname, setNickname] = useState("");
   const [emoji, setEmoji] = useState("🥷🏻"); // default emoji
-  const { chatRoom } = props; //extracts the chatRoom prop from the props object.
+  const { chatRoom } = props; //extracts the chatRoom prop from the props object
 
-  const [newMessage, setNewMessage] = useState(""); //manages the user's new chat messages.
+  const [newMessage, setNewMessage] = useState(""); //manages the user's new chat messages
 
   const messagesRef = collection(db, "messages"); //reference to Firestore collection called "messages" using collection function
 
   const [messages, setMessages] = useState([]); //state variable used to store an array of chat messages, when new messages are received or sent, setMessages is used to add them to the messages array.
 
-  //   used to fetch and listen to chat messages when the component is first rendered
+  // used to get and listen to chat messages when the component is first rendered
   useEffect(() => {
     //query to only grab the messages from a specific room
     const queryMessages = query(
@@ -43,8 +43,7 @@ function Chat(props) {
     return () => unsubscribe(); //return and clean up the useeffect once done, can cause a lot of issues with performance
   }, []); //query is a function from firestore
 
-  // function that handles the submission of new chat messages.
-
+  // function that handles the submission of new chat messages
   const handleSubmit = async (event) => {
     event.preventDefault(); //prevent default behavior of form
 
@@ -67,7 +66,6 @@ function Chat(props) {
   };
 
   // function that shows the chat room title, a list of messages, an input field for new messages, and a "Send" button
-
   return (
     <div className="chat">
       <h4 className="chat__title">

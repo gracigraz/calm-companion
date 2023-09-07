@@ -5,9 +5,7 @@ import {
   getDocs,
   collection,
   updateDoc,
-  addDoc,
   doc,
-  deleteDoc,
   getDoc,
 } from "firebase/firestore";
 import { Link } from "react-router-dom";
@@ -15,32 +13,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Hacks() {
-  const [strategyList, setStrategyList] = useState([]);
+  const [strategyList, setStrategyList] = useState([]); //array that stores coping strategies/hacks
 
-  const loggedUser = localStorage.getItem("user"); //retrieves a user identifier from the browser's local storage. This is what allows us to associate the mood data with a specific user
-  const [userData, setUserData] = useState([]); //state varibale used to to store the user's data fetched from firebase. it is initialized to an aempty array
+  const loggedUser = localStorage.getItem("user"); //gets user identifier from the local storage int he browser. This is what allows us to associate the mood data with a specific user
+  const [userData, setUserData] = useState([]); //state varibale used to to store the user's data that we get from firebase. it is initialized to an empty array
 
   const usersCollectionRef = collection(db, "users"); //reference to the user's collection in firebase
   const conditionUser = userData === null ? true : false; //checks if userData is null, if true a message "Loading.." appears on the screen
 
-  const copingStrategiesCollectionRef = collection(db, "coping-strategies");
+  const copingStrategiesCollectionRef = collection(db, "coping-strategies"); //reference to cpoing-strategies collection in db
 
-  //add new coping-strategy if they cannot find what they want
+  //add new coping-strategy if they cannot find one that serves them
   const [newStrategyName, setNewStrategyName] = useState("");
 
+  //function to delete a coping strategy from the user's data using the trash icon
   const deleteStrategy = async (id) => {
     try {
-      // Remove the strategy with the specified ID from the user's data
+      // remove the strategy with the specified ID from the user's data
       const updatedCopingStrategies = userData.copingStrategies.filter(
         (strategy) => strategy.id !== id
       );
 
-      // Update the user's data in Firestore
+      // update the user's data in db
       await updateDoc(doc(db, "users", loggedUser), {
         copingStrategies: updatedCopingStrategies,
       });
 
-      // Update strategyList to reflect the change
+      // update strategyList to show the change in coping strategies
       setStrategyList((prevStrategyList) =>
         prevStrategyList.filter((strategy) => strategy.id !== id)
       );
@@ -50,10 +49,9 @@ function Hacks() {
   };
 
   const getStrategyList = async () => {
-    //Read the data
-    //Set the strategy list
+    //read the data and set the strategy list
     try {
-      const data = await getDocs(copingStrategiesCollectionRef); //fetch coping strategies and store in strategylist state variable
+      const data = await getDocs(copingStrategiesCollectionRef); //get coping strategies and store in strategylist state variable
       const filteredData = data.docs.map((doc) => ({
         ...doc.data(),
         id: doc.id,
@@ -80,6 +78,7 @@ function Hacks() {
     setStrategyList(updatedStrategies);
   };
 
+  //saves selected coping strategies to the user's data
   const saveSelectedStrategies = async () => {
     try {
       const userDocRef = doc(db, "users", loggedUser);
@@ -88,18 +87,18 @@ function Hacks() {
       if (userDoc.exists()) {
         const userData = userDoc.data();
 
-        // Filter selected strategies
+        // filter out selected strategies from strategyList
         const selectedStrategies = strategyList.filter(
           (strategy) => strategy.selected
         );
 
-        // Merge selected strategies with user's existing ones
+        // merge selected strategies with user's existing ones
         const mergedStrategies = [
           ...(userData.copingStrategies || []),
           ...selectedStrategies,
         ];
 
-        // Update the user's data with the merged strategies
+        // update the user's data with the merged strategies
         await updateDoc(userDocRef, {
           copingStrategies: mergedStrategies,
         });
@@ -120,16 +119,18 @@ function Hacks() {
       console.log(error);
     }
   };
+
+  //function that allows the user to add a new coping strategy
   const addNewStrategy = async () => {
     try {
       if (newStrategyName.trim() !== "") {
-        // Create a new coping strategy object
+        // create a new coping strategy object if not empty
         const newCopingStrategy = {
           name: newStrategyName,
           selected: false,
         };
 
-        // Update the user's data in Firestore with the new strategy
+        // update the user's data in db with the new strategy
         await updateDoc(doc(db, "users", loggedUser), {
           copingStrategies: [
             ...(userData.copingStrategies || []),
@@ -137,13 +138,13 @@ function Hacks() {
           ],
         });
 
-        // Update strategyList to include the new strategy
+        // update strategyList to include the new strategy
         setStrategyList((prevStrategyList) => [
           ...prevStrategyList,
           newCopingStrategy,
         ]);
 
-        // Clear the input field
+        // clear the input field
         setNewStrategyName("");
       }
     } catch (error) {
@@ -151,9 +152,9 @@ function Hacks() {
     }
   };
 
-  //function that fetches user data based on the loggedUser identifier and updates the user's data (userData) state variable.
+  //function that gets user data based on the loggedUser identifier and updates the user's data (userData) state variable.
   useEffect(() => {
-    //getUser fetches the user data from firebase
+    //getUser gets the user data from firebase
     const getUser = async () => {
       try {
         const snap = await getDoc(doc(db, "users", loggedUser)); //getDOc to get a  specific document in the users collection, we get loggedUser from local storage and is used as the document's ID

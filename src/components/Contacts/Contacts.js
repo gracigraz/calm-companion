@@ -9,22 +9,24 @@ import {
   query,
   deleteDoc,
 } from "firebase/firestore";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; //imported for navigation
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Contacts() {
-  const [contactName, setContactName] = useState("");
-  const [contactPhoneNumber, setContactPhoneNumber] = useState("");
-  const [contacts, setContacts] = useState([]);
-  const loggedUser = localStorage.getItem("user");
-  const [userData, setUserData] = useState([]);
+  const [contactName, setContactName] = useState(""); //used to track the name of the contact inputed by the user
+  const [contactPhoneNumber, setContactPhoneNumber] = useState(""); //used to track the tel number of the contact inputed by the user
+  const [contacts, setContacts] = useState([]); //array used to store the list of contacts that we get from the database
+  const loggedUser = localStorage.getItem("user"); // gets the user identifier from the local storage in the browser
+  const [userData, setUserData] = useState([]); //used to store user data that we get from firestore
   const conditionUser = userData === null ? true : false;
 
+  //function that initiates a phone call to phoneNumber
   const handleCall = (phoneNumber) => {
     window.location.href = "tel:" + phoneNumber;
   };
 
+  //function that gets the a list of contacts for the current user from firestore
   const fetchContacts = async () => {
     try {
       const contactsSnapshot = await getDocs(
@@ -36,12 +38,12 @@ function Contacts() {
         fetchedContacts.push({ id: contactDoc.id, ...contactDoc.data() });
       });
 
-      setContacts(fetchedContacts);
+      setContacts(fetchedContacts); // updates the contacts state variable
     } catch (error) {
       console.error("Error fetching contacts:", error);
     }
   };
-
+  // function that adds a new contact's name and tel number to the user's collection in firestore.
   const handleAddContact = async () => {
     try {
       // Add the new contact to the user's collection
@@ -54,18 +56,18 @@ function Contacts() {
       // Fetch the updated contacts and update the state
       fetchContacts();
 
-      // Clear the input fields
+      // Clear the input fields after adding a contact
       setContactName("");
       setContactPhoneNumber("");
     } catch (error) {
       console.error("Error adding contact:", error);
     }
   };
-
+  // gets the user's contacts when the component is first mounted
   useEffect(() => {
     fetchContacts();
   }, []);
-
+  // function that deletes a contact by its ID from the user's collection
   const handleDeleteContact = async (contactId) => {
     try {
       const userContactsRef = doc(
@@ -77,13 +79,13 @@ function Contacts() {
       );
       await deleteDoc(userContactsRef);
 
-      // Fetch the updated contacts and update the state
+      // get the updated contacts and update the state
       fetchContacts();
     } catch (error) {
       console.error("Error deleting contact:", error);
     }
   };
-
+  //gets the user's data when the component is mounted and whenever conditionUser changes
   useEffect(() => {
     const getUser = async () => {
       try {

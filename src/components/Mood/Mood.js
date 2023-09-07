@@ -28,12 +28,12 @@ function Mood() {
 
   // function called when the save button is clicked. Saves the current mood and timestamp to Firebase Firestore and displays an alert message based on the mood level.
   const moodClick = async () => {
-    const moodChange = parseInt(mood, 10); // Parse the mood as an integer
+    const moodChange = parseInt(mood, 10); // convert mood (string) to an integer (base 10)
 
     try {
       const userDoc = doc(db, "users", loggedUser);
 
-      // Save the mood to Firebase Firestore
+      // Save the mood and timestamp to Firebase Firestore
       await updateDoc(userDoc, {
         mood: moodChange,
         createdAt: serverTimestamp(),
@@ -83,8 +83,9 @@ function Mood() {
       }
     };
     getUser(); // calling getUSer to initiate thw data fetching when the component is mounted
-  }, [conditionUser]); //useeffect runs everytime the conditioUser array changes
+  }, [conditionUser]); //this useeffect runs everytime the conditioUser array changes
 
+  //if conditionUser is true while data is being fetched Loading.. is displayed
   if (conditionUser) {
     return <div>Loading...</div>;
   }

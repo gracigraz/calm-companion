@@ -15,14 +15,19 @@ import "./SignUp.scss";
 
 function SignUp() {
   const navigate = useNavigate();
+
+  //state variables include registerEmail, registerPassword, registerName, and registerLastName, are used to store the user's email, password, first name, and last name, respectively.
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [registerName, setRegisterName] = useState("");
   const [registerLastName, setRegisterLastName] = useState("");
+
   const usersCollectionRef = collection(db, "users"); //grabbing the users collection form the db and asigning it to usersCollectionRef, collection function we need to import from the firestore, now we can make queries to the users collection
 
+  // the register function is called when the signup button is clicked.
   const register = () => {
-    createUserWithEmailAndPassword(auth, registerEmail, registerPassword)
+    createUserWithEmailAndPassword(auth, registerEmail, registerPassword) //(from firebase authentication) is used to create a new user account with the provided email and password.
+      //if the account is created successfully, it retrieves the user's unique ID (userID) and uses setDoc to create a new document in the firebase firestore users collection with their first name, last name, email, and UID.
       .then((userCredential) => {
         const userID = userCredential.user.uid;
         setDoc(doc(db, "users", userID), {
@@ -31,16 +36,9 @@ function SignUp() {
           email: registerEmail,
           uid: userID,
         });
-        // Store additional user info in Firestore
-        // addDoc(usersCollectionRef, {
-        //   firstName: registerName,
-        //   lastName: registerLastName,
-        //   email: user.email,
-        //   uid: user.uid,
-        // });
-        alert("User registered");
-        navigate("/login");
-        // console.log("User registered:", userID);
+
+        alert("User registered"); //alert to show registration successful
+        navigate("/login"); //takes you to login page after successful registration
       })
       .catch((error) => {
         console.log(error.message);
@@ -58,7 +56,7 @@ function SignUp() {
           className="signup__input signup__input--smaller"
           placeholder="First Name"
           type="text"
-          value={registerName} // Binding the value to the state variable
+          value={registerName} // this allows real-time updates of the state variables as the user types in their name in this case
           onChange={(event) => {
             setRegisterName(event.target.value);
           }}
@@ -67,7 +65,7 @@ function SignUp() {
           className="signup__input signup__input--smaller"
           placeholder="Last Name"
           type="text"
-          value={registerLastName} // Binding the value to the state variable
+          value={registerLastName} // this allows real-time updates of the state variables as the user types in their last name in this case
           onChange={(event) => {
             setRegisterLastName(event.target.value);
           }}

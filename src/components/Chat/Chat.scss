@@ -46,9 +46,12 @@
     @include font-m-p2-body-medium;
   }
   &__message {
+    margin: 0.5rem;
+    background-color: $color-sinbad;
+    padding: 0.5rem 1rem;
+    border-radius: 1.25rem;
   }
-  &__user {
-  }
+
   &__container {
     width: 100%;
     display: flex;
@@ -61,6 +64,7 @@
     display: flex;
     justify-content: flex-end;
     gap: 0.25rem;
+    margin-top: 1rem;
   }
   &__new-message {
     width: 62.5%;

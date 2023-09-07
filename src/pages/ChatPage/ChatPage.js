@@ -26,7 +26,7 @@ function ChatPage() {
             {!isInChat ? (
               <div className="chat-page__room">
                 <label className="chat-page__label">
-                  Room Name (Give it a cool title!):{" "}
+                  Room Name (Give it a cool title!):
                   <input
                     placeholder="Enter room name..."
                     className="chat-page__input"
@@ -58,18 +58,3 @@ function ChatPage() {
 }
 
 export default ChatPage;
-
-//   //function that calls the signOut function from Firebase auth to log the user out.
-//   //Once the user signs out: 1. it removes the authentication token from cookies, 2. sets isAuth to false, and 3. sets isInChat to false.
-//   const handleSignOut = async () => {
-//     await signOut(auth);
-//     cookies.remove("auth-token");
-//     setIsAuth(false);
-//     setIsInChat(false);
-//   };
-//         {/* handleSignOut logs the user out */}
-//         {isAuth && (
-//             <div className="sign-out">
-//               <button onClick={handleSignOut}> Sign Out</button>
-//             </div>
-//           )}

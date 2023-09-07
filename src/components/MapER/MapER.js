@@ -10,10 +10,12 @@ import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { Link } from "react-router-dom";
 
 function MapER() {
-  const [locations, setLocations] = useState([]);
-  const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+  const [locations, setLocations] = useState([]); //state variable, array that will hold info about emergency roomlocations fetched from the mapbox api
+  const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN; //retrieve access token from env variables
 
+  //fetches data from the Mapbox API when the component first mounts
   useEffect(() => {
+    //axios get call search/searchbox/v1/category/emergency_room endpoint
     axios
       .get(
         "https://api.mapbox.com/search/searchbox/v1/category/emergency_room?access_token=" +
@@ -21,8 +23,8 @@ function MapER() {
           "&language=en&limit=7&proximity=-80.2034%2C25.8017"
       )
       .then((response) => {
+        //extracting locations of emergency rooms  from the response
         const fetchedLocations = response.data.features;
-        console.log(response);
         setLocations(fetchedLocations);
       })
       .catch((error) => {
@@ -55,6 +57,7 @@ function MapER() {
         >
           {locations.map((location, index) => (
             <Marker
+              // markers are positioned based on latitude and longitude coordinates
               key={index}
               longitude={location.geometry.coordinates[0]}
               latitude={location.geometry.coordinates[1]}

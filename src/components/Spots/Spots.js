@@ -2,7 +2,7 @@ import "./Spots.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; //for managing state and side effects
 import { db } from "../../firebase-config";
 import {
   collection,
@@ -13,12 +13,14 @@ import {
 } from "firebase/firestore";
 
 function Spots() {
-  const [spotName, setSpotName] = useState("");
-  const [spots, setSpots] = useState([]);
-  const loggedUser = localStorage.getItem("user");
-  const [userData, setUserData] = useState([]);
-  const conditionUser = userData === null ? true : false;
+  const [spotName, setSpotName] = useState(""); //state variable used to track the name of the hangout spot entered by the user
+  const [spots, setSpots] = useState([]); //array where we store the list of hangout spots fetched from firebase firestore
+  const loggedUser = localStorage.getItem("user"); //gets the user identifier from the local storage
+  const [userData, setUserData] = useState([]); // used to store user data gotten from firebase dabatase
 
+  const conditionUser = userData === null ? true : false; // used to check if userData is null tells us if the user data is still being loaded
+
+  // function that gets the list of spots for the current user from database
   const fetchSpots = async () => {
     try {
       const spotsSnapshot = await getDocs(
@@ -30,12 +32,12 @@ function Spots() {
         fetchedSpots.push({ id: spotDoc.id, ...spotDoc.data() });
       });
 
-      setSpots(fetchedSpots);
+      setSpots(fetchedSpots); //updates the spots state variable
     } catch (error) {
       console.error("Error fetching spots:", error);
     }
   };
-
+  //adds a new spot to the user's collection in the database
   const handleAddSpot = async () => {
     try {
       // Add the new spot to the user's collection
@@ -47,17 +49,17 @@ function Spots() {
       // Fetch the updated spots and update the state
       fetchSpots();
 
-      // Clear the input field
+      // Clear the input field after adding a spot
       setSpotName("");
     } catch (error) {
       console.error("Error adding spot:", error);
     }
   };
-
+  // gets the user's hangout spots when the component is first mounted
   useEffect(() => {
     fetchSpots();
   }, []);
-
+  //deletes a specific hangout spot by its ID from the user's collection
   const handleDeleteSpot = async (spotId) => {
     try {
       const userSpotsRef = doc(db, "users", loggedUser, "spots", spotId);
@@ -70,6 +72,7 @@ function Spots() {
     }
   };
 
+  //gets the user's data when the component is mounted and whenever conditionUser variable changes=
   useEffect(() => {
     const getUser = async () => {
       try {

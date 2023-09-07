@@ -8,12 +8,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function MapUrgentCare() {
-  const [locations, setLocations] = useState([]);
-  const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
+  const [locations, setLocations] = useState([]); //state variable, an array that will hold information about the urgent care locations fetched from the Mapbox API.
+  const ACCESS_TOKEN = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN; //gets Mapbox access token from the environment variables.
+  //latitude and longitude coordinates of Miami, Florida
   const latitude = 25.8017;
   const longitude = -80.2034;
 
+  //used to fetch data from the Mapbox API when the component first mounts.
   useEffect(() => {
+    //axios get request to searchbox/v1/suggest endpoint + query fo rurgent care at a specific lat and longitude
     axios
       .get(
         "https://api.mapbox.com/search/searchbox/v1/suggest?q=urgent+care&language=en&proximity=-80.2034,25.8017&types=poi&session_token=0f4f2121-34e4-45a1-88a3-4476a1704c44&access_token=" +
@@ -50,6 +53,7 @@ function MapUrgentCare() {
       </div>
       <Link
         to={`https://www.google.com/maps?q=${latitude},${longitude}`}
+        // attributes to open the link in a new tab securely:
         target="_blank"
         rel="noopener noreferrer"
       >

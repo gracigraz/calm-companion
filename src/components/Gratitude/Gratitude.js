@@ -2,7 +2,6 @@ import "./Gratitude.scss";
 import { db } from "../../firebase-config.js";
 import {
   collection,
-  addDoc,
   getDoc,
   doc,
   updateDoc,
@@ -15,25 +14,12 @@ import { useState, useEffect } from "react";
 import { auth } from "../../firebase-config"; // Import Firebase auth instance
 
 function Gratitude() {
-  const [registerReason, setRegisterReason] = useState("");
-  const [user, setUser] = useState(null);
-  const loggedUser = localStorage.getItem("user");
-  const [userData, setUserData] = useState({});
+  const [registerReason, setRegisterReason] = useState(""); // track the reason for gratitude entered by the user
+  const loggedUser = localStorage.getItem("user"); //gets user identifier from the local storage int he browser
+  const [userData, setUserData] = useState({}); //store user data fetched from database
   const usersCollectionRef = collection(db, "users");
 
   const conditionUser = userData === null ? true : false;
-
-  useEffect(() => {
-    // Check if the user is authenticated and update the `user` state
-    const unsubscribe = auth.onAuthStateChanged((authUser) => {
-      setUser(authUser);
-    });
-
-    // Clean up the subscription when the component unmounts
-    return () => {
-      unsubscribe();
-    };
-  }, []);
 
   useEffect(() => {
     const getUser = async () => {
@@ -55,28 +41,24 @@ function Gratitude() {
     }
   }, [conditionUser, loggedUser]);
 
+  //called when user clicks Add Reason button
   const register = async (event) => {
     event.preventDefault();
 
-    if (!user) {
-      console.log("User is not authenticated.");
-      return;
-    }
-
-    // Fetch the existing reasons array from userData
+    // gets existing reasons array from userData
     const existingReasons = userData.reasons || [];
 
-    // Add the new reason to the array
+    // adds new reason to the array
     const updatedReasons = [...existingReasons, registerReason];
 
     try {
-      // Update the Firestore document with the updated reasons array
+      // update document with updated reasons array
       await updateDoc(doc(db, "users", loggedUser), {
         reasons: arrayUnion(registerReason),
       });
       console.log("New reason added:", registerReason);
 
-      // Clear the input field after adding the reason
+      // clear the input field after adding the reason
       setRegisterReason("");
       setUserData((prevUserData) => ({
         ...prevUserData,
@@ -106,6 +88,7 @@ function Gratitude() {
             lights up your world?
           </label>
           <input
+            placeholder="Enter reason to live..."
             className="gratitude__input"
             type="text"
             id="gratitude__label"
@@ -128,6 +111,7 @@ function Gratitude() {
               </div>
             ))}
         </div>
+        {/* hardcoded reasons for gratitude for inspiration to the user */}
         <div className="gratitude__thoughts">
           <div className="gratitude__thought">
             Kick-ass adventures and wild stories

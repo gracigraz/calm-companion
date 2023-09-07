@@ -4,15 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Toolkit() {
+  //redirects the user to the "/hacks" page
   const handleHacks = () => {
     window.location.href = "/hacks";
   };
+
+  //redirects the user to the "/gratitude" page
   const handleGratitude = () => {
     window.location.href = "/gratitude";
   };
+
+  //redirects the user to the "/mycontacts" page
   const handleCompanions = () => {
     window.location.href = "/mycontacts";
   };
+
+  //redirects the user to the "/myspots" page
   const handleSpots = () => {
     window.location.href = "/myspots";
   };

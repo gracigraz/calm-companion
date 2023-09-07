@@ -5,8 +5,8 @@ function Welcome() {
   return (
     <>
       <main className="welcome">
+        <h1 className="welcome__title">Calm Companion</h1>
         <div className="welcome__container">
-          <h1 className="welcome__title">Calm Companion</h1>
           <p className="welcome__intro">
             Welcome to the app for anonymous sharing mental health stories,
             tools, and crisis support. Overcome negative thoughts—now!
