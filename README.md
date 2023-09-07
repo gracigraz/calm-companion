@@ -63,15 +63,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 ### Deployment
 
+Hosting URL: https://calm-companion-9be1f.web.app
+
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# calm-companion
+# calm-companion - Hosting URL: https://calm-companion-9be1f.web.app
 
-The purpose of the Calm Companion project is to create an app for anonymously sharing mental health stories, providing tools, and offering crisis support. The goal is to assist individuals in overcoming negative thoughts by conducting daily check-ins with themselves, and ensuring they do not feel alone in their journey to recovery. The app includes three main sections: a dashboard with a mood checkin and personalized coping strategies toolkit, a crisis support section, and an anonymous chat feature, allowing users to connect and share their experiences discreetly.
+The purpose of the Calm Companion project is to create a web app (mobile screen size) for anonymously sharing mental health stories, providing tools, and offering crisis support. The goal is to assist individuals in overcoming negative thoughts by conducting daily check-ins with themselves, and ensuring they do not feel alone in their journey to recovery. The app includes three main sections: a dashboard with a mood checkin and personalized coping strategies toolkit, a crisis support section, and an anonymous chat feature, allowing users to connect and share their experiences discreetly.
 
 Built With:
 This section lists the major frameworks/libraries used to build this project.
