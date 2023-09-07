@@ -93,23 +93,9 @@ To get a local copy up and running follow these simple example steps.
    git clone https://github.com/gracigraz/calm-companion.git
 2. Install NPM packages
    npm install
-
-## Usage
-
-This section shows examples of how the project can be used. Additional screenshots, code examples and demos work well in this space and links to more resources.
-
-#Firebase Authentication
-![Screenshot of database users in firebase firestore](./READMEscreenshots/authentication.png?raw=true)
-
-#Firebase Firestore Database
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-user.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-coping-strategies.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-copingStrategies.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-reasons.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-contacts.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users-spots.png?raw=true)
-![Screenshot of database users in firebase firestore](./READMEscreenshots/db-messages-collection-chat.png?raw=true)
+3. get mapbox access token
+4. create .env file and add mapbox access token variable e.g REACT_APP_MAPBOX_ACCESS_TOKEN = "yourtoken"
+5. npm start
 
 ## Features
 
@@ -203,6 +189,71 @@ The choice of nickname and emoji can be changed as frequently as desired during 
 Users can connect and communicate with others anonymously, fostering a safe and open environment for discussions.
 Specific chat rooms are available, allowing users to join conversations with individuals from the same group or topic.
 The chat feature enables users to participate in multiple concurrent conversations without interference, ensuring seamless communication.
+
+## Usage/Screenshots
+
+This section shows examples of how the project can be used.
+
+#Firebase Authentication
+![Screenshot of database users in firebase firestore](./READMEscreenshots/authentication.png?raw=true)
+
+#Firebase Firestore Database
+![Screenshot of database users in firebase firestore](./READMEscreenshots/db-users.png?raw=true)
+
+![Screenshot of user in database  users in firebase firestore](./READMEscreenshots/db-users-user.png?raw=true)
+
+![Screenshot of database coping-strategies in firebase firestore](./READMEscreenshots/db-coping-strategies.png?raw=true)
+
+![Screenshot of coping strategies in user in users database in firebase firestore](./READMEscreenshots/db-users-copingStrategies.png?raw=true)
+
+![Screenshot of gratitude reasons in user in users database in firebase firestore](./READMEscreenshots/db-users-reasons.png?raw=true)
+
+![Screenshot of contacts collection in user in users collection database in firebase firestore](./READMEscreenshots/db-users-contacts.png?raw=true)
+
+![Screenshot of spots collection in user in users collection database in firebase firestore](./READMEscreenshots/db-users-spots.png?raw=true)
+
+![Screenshot of database messages collection in firebase firestore](./READMEscreenshots/db-messages-collection-chat.png?raw=true)
+
+#Screenshots of features
+
+- Home/dashboard Page
+  ![Screenshot of Dashboard or Home page](./READMEscreenshots/dashboardPage.png?raw=true)
+
+![Screenshot of mood tracker and toolkit sections in Dashboard or Home page](./READMEscreenshots/mood.png?raw=true)
+
+![Screenshot of adding hacks to hacks toolkit page](./READMEscreenshots/hacks-add.png?raw=true)
+
+![Screenshot of saving hacks toolkit page](./READMEscreenshots/hacks2.png?raw=true)
+
+![Screenshot of adding gratitude reasons page](./READMEscreenshots/reasons.png?raw=true)
+
+![Screenshot of inspirational reasons to live toolkit page](./READMEscreenshots/reasons-inspiration.png?raw=true)
+
+![Screenshot of contacts toolkit page](./READMEscreenshots/contacts.png?raw=true)
+
+![Screenshot of spots toolkit page](./READMEscreenshots/spots.png?raw=true)
+
+- Crisis Page
+  ![Screenshot of Crisis page](./READMEscreenshots/crisis.png?raw=true)
+
+![Screenshot of 911 call in Crisis page](./READMEscreenshots/911.png?raw=true)
+
+![Screenshot of 988 call in Crisis page](./READMEscreenshots/988.png?raw=true)
+
+![Screenshot of ER Map in Crisis page](./READMEscreenshots/ERlist.png?raw=true)
+
+![Screenshot of ER List in Crisis page](./READMEscreenshots/ERmap.png?raw=true)
+
+![Screenshot of UR List in Crisis page](./READMEscreenshots/UC.png?raw=true)
+
+- Chat Page
+
+![Screenshot of Chat page](./READMEscreenshots/chatPage.png?raw=true)
+![Screenshot of Chat page](./READMEscreenshots/chat.png?raw=true)
+
+- 404 Page
+
+  ![Screenshot of 404 error page](./READMEscreenshots/404error.png?raw=true)
 
 ## Contact
 
