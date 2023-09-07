@@ -1,0 +1,84 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.mood {
+  width: 100%;
+  &__title {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: $color-darkgray;
+    margin: 0.5rem 0 1rem 0;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__progress-container {
+    width: 100%;
+    height: 1.5rem;
+    background-color: #f3ecd3;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  &__progress-bar {
+    height: 100%;
+    background-color: $color-sinbad;
+    transition: width 0.3s ease-in-out;
+  }
+  &__buttons {
+    margin-bottom: 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__button {
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.75rem;
+    border: none;
+    color: $color-darkgray;
+    @include font-m-h3-labels-links-buttons;
+    &--level1 {
+      background-color: $color-m-red;
+    }
+    &--level2 {
+      background-color: $color-m-orange;
+    }
+    &--level3 {
+      background-color: $color-m-yellow;
+    }
+    &--level4 {
+      background-color: $color-m-lightgreen;
+    }
+    &--level5 {
+      background-color: $color-m-green;
+    }
+  }
+  &__states {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  &__save {
+    background-color: $color-sinbad;
+    border: 1px solid $color-sinbad;
+    border-radius: 20px;
+    color: $color-darkgray;
+    padding: 0.25rem 0.75rem;
+    @include font-m-h3-labels-links-buttons;
+    &:active {
+      background-color: $color-wheatfield;
+    }
+  }
+
+  &__refresh {
+    color: $color-gunmetal-gray;
+    width: auto;
+  }
+}

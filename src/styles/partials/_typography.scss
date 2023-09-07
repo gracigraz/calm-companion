@@ -1,0 +1,37 @@
+@use "variables" as *;
+
+@font-face {
+  font-family: "Quicksand", sans-serif;
+  src: url("../../assets/fonts/Quicksand-Light.ttf") format("ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Quicksand", sans-serif;
+  src: url("../../assets/fonts/Quicksand-Regular.ttf") format("ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand", sans-serif;
+  src: url("../../assets/fonts/Quicksand-Medium.ttf") format("ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand", sans-serif;
+  src: url("../../assets/fonts/Quicksand-SemiBold.ttf") format("ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Quicksand", sans-serif;
+  src: url("../../assets/fonts/Quicksand-Bold.ttf") format("ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+// <style>
+//   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+// </style>

@@ -1,0 +1,50 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.urgent-care {
+  padding: 1.5rem;
+  background-color: white;
+  font-family: "Quicksand", sans-serif;
+  svg {
+    color: $color-gunmetal-gray;
+  }
+  &__title {
+    padding: 0.5rem 1rem 0.75rem 1rem;
+    color: $color-darkgray;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+  }
+
+  &__item {
+    background-color: lightgrey;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 10px;
+  }
+  &__name {
+    color: $color-darkgray;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    @include font-m-h3-labels-links-buttons;
+  }
+  &__address {
+    color: $color-darkgray;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    @include font-m-p2-body-medium;
+  }
+  &__button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: $color-sinbad;
+    color: $color-darkgray;
+    @include font-m-h3-labels-links-buttons;
+    font-size: 14px;
+  }
+}

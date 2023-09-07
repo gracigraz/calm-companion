@@ -1,0 +1,120 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.welcome {
+  height: 100vh;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  font: 2vw "Quicksand";
+  background-color: $color-sinbad;
+  font-family: "Quicksand", sans-serif;
+
+  &__container {
+    transform: translatey(0px);
+    animation: float 3s ease-in-out 2;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    font-size: 1rem;
+    color: $color-gunmetal-gray;
+    background-color: $color-surf-crest;
+    padding: 1rem;
+    border-radius: 1.75rem;
+    position: relative;
+    box-shadow: 1.375rem $color-sinbad;
+    font-family: "Quicksand", sans-serif;
+
+    &:after {
+      transform: translatey(0px);
+      animation: secondfloat 3s ease-in-out 2;
+      content: ".";
+      font-weight: bold;
+      -webkit-text-fill-color: $color-wheatfield;
+      font-size: 25px;
+      width: 18px;
+      height: 25px;
+      line-height: 20px;
+      border-radius: 20px;
+      position: absolute;
+      display: block;
+      bottom: -18px;
+      left: 0;
+      box-shadow: -12px 22px $color-surf-crest;
+      z-index: -2;
+    }
+  }
+
+  &__title {
+    font-family: "Quicksand", sans-serif;
+    text-transform: uppercase;
+    font-size: 28px;
+    color: $color-wheatfield;
+    margin-bottom: 1.5rem;
+  }
+  &__intro {
+    font-family: "Quicksand", sans-serif;
+    color: $color-gunmetal-gray;
+    animation: showButtons 8s ease-in-out 1;
+  }
+  &__buttons {
+    opacity: 1;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    animation: showButtons 10s ease-in-out 1;
+  }
+  &__button {
+    font-weight: 600;
+    color: $color-gunmetal-gray;
+    background-color: $color-surf-crest;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
+
+    &--left {
+      background-color: $color-wheatfield;
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes secondfloat {
+  0% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+  55% {
+    transform: translatey(-20px);
+  }
+  60% {
+    line-height: 10px;
+  }
+  100% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+}
+
+@keyframes showButtons {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

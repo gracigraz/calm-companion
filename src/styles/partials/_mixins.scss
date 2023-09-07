@@ -1,0 +1,44 @@
+@use "variables" as *;
+
+//mobile text styles
+
+@mixin font-m-h1-page-header {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+}
+
+@mixin font-m-h2-subheader {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+@mixin font-m-h3-labels-links-buttons {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  font-weight: 600;
+}
+
+@mixin font-m-h4-table-header {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+@mixin font-m-p1-body-large {
+  font-size: 0.9375rem;
+  line-height: 1.625rem;
+  font-weight: 400;
+}
+
+@mixin font-m-p2-body-medium {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+}
+@mixin font-m-p3-body-small {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+  font-weight: 400;
+}

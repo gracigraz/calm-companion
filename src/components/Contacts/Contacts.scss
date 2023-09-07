@@ -1,0 +1,85 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.contacts {
+  padding: 1.5rem;
+  color: $color-darkgray;
+  font-family: "Quicksand", sans-serif;
+  &__back {
+    text-align: left;
+    width: auto;
+    color: $color-gunmetal-gray;
+  }
+  &__title {
+    margin: 0.5rem 1rem 1rem 1rem;
+    font-family: "Quicksand", sans-serif;
+    color: $color-darkgray;
+    @include font-m-p2-body-medium;
+    font-weight: 600;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  &__contact {
+    background-color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+  &__avatar {
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    background-color: $color-pewter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  &__newcontact-name,
+  &__newcontact-phone {
+    @include font-m-p2-body-medium;
+    flex-shrink: 0;
+    margin-block-start: 0.75rem;
+    margin-block-end: 0.75rem;
+  }
+  &__newcontact-container {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  &__newcontact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &__name,
+  &__phone {
+    width: 42.5%;
+    background-color: white;
+    border: 1px solid $color-pewter;
+    border-radius: 1rem;
+    padding: 0.25rem 0.5rem;
+    @include font-m-p2-body-medium;
+    font-size: 0.75rem;
+  }
+
+  &__button {
+    margin-top: 1rem;
+    background-color: $color-sinbad;
+    border: 1px solid $color-sinbad;
+    border-radius: 20px;
+    color: $color-darkgray;
+    @include font-m-h3-labels-links-buttons;
+    padding: 0.25rem;
+  }
+  &__delete {
+    color: $color-sinbad;
+    width: auto;
+  }
+}

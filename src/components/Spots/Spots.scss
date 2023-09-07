@@ -1,0 +1,71 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
+
+.spots {
+  padding: 1.5rem;
+
+  &__exit {
+    @include font-m-h4-table-header;
+    text-align: left;
+    width: auto;
+    color: $color-darkgray;
+  }
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    font-family: "Quicksand", sans-serif;
+    color: $color-darkgray;
+    @include font-m-p2-body-medium;
+    font-weight: 600;
+    text-align: left;
+    padding: 0 1rem;
+  }
+  &__input {
+    @include font-m-p2-body-medium;
+    border-radius: 1rem;
+    border: solid 1px $color-pewter;
+    color: $color-darkgray;
+    padding: 0.25rem 0.5rem;
+    margin: 0 1rem;
+    font-size: 0.75rem;
+
+    &:active {
+      border: solid 1px $color-sinbad;
+    }
+  }
+  &__add {
+    margin: 1rem;
+    @include font-m-h3-labels-links-buttons;
+    background-color: $color-sinbad;
+    border-radius: 20px;
+    border: solid 1px $color-sinbad;
+    color: $color-darkgray;
+    padding: 0.25rem;
+    &:active {
+      background-color: $color-wheatfield;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  &__spot {
+    margin: 0.5rem;
+    @include font-m-p2-body-medium;
+    color: $color-darkgray;
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  &__delete {
+    margin: 0.5rem;
+    color: $color-sinbad;
+  }
+}
