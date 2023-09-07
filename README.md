@@ -216,6 +216,15 @@ This section shows examples of how the project can be used.
 
 #Screenshots of features
 
+- Welcome
+  ![Screenshot of Welcome/aboutus page](./READMEscreenshots/aboutus.png?raw=true)
+
+- Join now (sign up)
+  ![Screenshot of Sign Up page](./READMEscreenshots/signup.png?raw=true)
+
+-Login
+![Screenshot of Login page](./READMEscreenshots/login.png?raw=true)
+
 - Home/dashboard Page
   ![Screenshot of Dashboard or Home page](./READMEscreenshots/dashboardPage.png?raw=true)
 
